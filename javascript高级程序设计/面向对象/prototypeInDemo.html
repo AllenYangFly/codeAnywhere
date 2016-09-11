@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+	<script>
+	window.onload = function() {
+		function Person () {
+			this.name = "allenyang"
+		}
+
+		Person.prototype.name = "asia";
+
+		var person1 = new Person();
+
+		alert( person1.name );
+		//name来自实例
+		alert( "name" in person1 );
+
+		var person2 = new Person();
+
+
+		delete person2.name;
+		//name来自原型
+		alert( "name" in person2 );
+
+		//联合判断原型中是否有”name“属性
+		
+		alert( "name" in person2 && !person2.hasOwnProperty("name") );
+
+
+	};
+	</script>
+</head>
+<body>
+
+</body>
+</html>

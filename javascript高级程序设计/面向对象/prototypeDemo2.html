@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+	<script>
+	window.onload = function() {
+		function Person(){}
+
+
+		Person.prototype = {
+			name : "allenyang",
+			age : 20,
+			id : 20144472
+		};
+
+		var person1 = new Person();
+
+		//结果为false，这样写会重写prototype，所以内置的constructor会改变。
+		alert( Person == Person.prototype.constructor );
+
+		//需要显示的指定constructor
+		Person.prototype = {
+			constructor : Person,
+			name : "allenyang",
+			age : 20,
+			id : 20144472
+		}; 
+
+		alert( Person == Person.prototype.constructor );
+
+		
+		//但是显示的设定了constructor之后，会导致可枚举属性为真，但是原生的是不能被枚举的
+		Object.defineProperty(Person.prototype,"constructor",{
+			enumerable : false,
+			value : Person
+		});
+
+		
+	};
+	</script>
+</head>
+<body>
+
+</body>
+</html>

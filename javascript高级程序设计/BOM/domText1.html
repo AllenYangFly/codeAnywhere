@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<title></title>
+	<script>
+	window.onload =function() {
+		
+        var leftPos = (typeof window.screenLeft == "number") ? window.screenLeft : window.screeX;
+        var topPos = (typeof window.screenTop == "number") ? window.screenTop : window.screeY;
+
+        // 代表浏览器边到屏幕边的距离，其实没什么卵用、、
+        // 调整浏览器的位置
+        // window.moveTo(200,200);
+        // window.moveBy(x,y);
+        // 改变浏览器的大小
+        // window.resizeTo();
+        // window.resizeBy();
+        // 已被浏览器禁用，其实也没什么卵用
+
+
+        
+        // innerWidth、innerHeight、outerHeight、outerWidth   
+        // document.documentElement.clientWidth、document.documentElement.clientHeight
+
+        // outerHeight、outerWidth 
+        //          IE9,Safari,Firefox   反回浏览器本身尺寸，包括工具栏
+        //          Opera、Chrome        返回浏览器可视区
+        // innerHeight、innerWidth
+        //          浏览器可视区  包括滚动条
+
+        // document.documentElement.clientWidth、document.documentElement.clientHeight
+        // 标准模式: 都适用   不包括滚动条
+        // 混杂模式: IE6必须使用document.body.clientWidth、document.body.clientHeight
+
+                
+	    var oBox = document.querySelector(".box");
+        // oBox.style.height = document.documentElement.clientHeight + "px";
+        console.log(getPageSize());
+
+
+        function getPageSize () {
+            var pageWidth = window.innerWidth;
+            var pageHeight = window.innerHeight;
+
+            if ( typeof pageWidth != "number") {
+                if ( document.compatMode == "CSS1Compat" ) {
+                    pageWidth = document.documentElement.clientWidth;
+                    pageHeight = document.documentElement.clientHeight;
+                } else {
+                    pageWidth = document.body.clientWidth;
+                    pageHeight = document.body.clientHeight;
+                }
+            }
+            return pageWidth;
+        }
+
+
+
+
+        // 打开新窗口
+        // window.open   浏览器会禁用
+        // 解决: 通过事件调用 E.onclick = function() {window.open()}或者addEventListener
+        // window.open("http://www.baidu.com");
+        // 关闭窗口
+        // window.close(); 浏览器不会禁用
+
+
+        // setTimeout、setInterval  clearTimeout、clearInterval
+        
+
+        // alert() confirm()  prompt()
+        // confirm选择后， 返回一个boolean值
+        // if(confirm("Yes/no")) {
+        //     alert("Yes");
+        // } else {
+        //     alert("No");
+        // }
+
+        // // prompt() 
+        // prompt输入确定后会返回输入的字符串,如果用户没有点击确定，则返回null
+        // var message = window.prompt("请输入您想输入的值");
+        // if(message !== null ){
+        //     alert(message);
+        // }
+
+        // window.print();  打印对话框
+        // window.find();   查找对话框
+
+
+        // Location
+        // href 完整的URL
+        // search ？及其之后的查询字符串
+        // alert(navigator.userAgent);
+        // navigator.registerContentHandler("application/rss+xml","http://www.somereader.com?feed=%s","Some Reader");
+
+        // navigator.registerContentHandler("application/vnd.mozilla.maybe.feed",
+        //                          "http://www.example.tld/?foo=%s",
+        //                          "My Feed Reader");
+    
+        
+    };
+
+	</script>
+    <style type="text/css">
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 100%;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

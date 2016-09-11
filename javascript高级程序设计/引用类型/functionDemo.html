@@ -1,0 +1,30 @@
+<!DCOTYPE html>
+<html>
+  <head>
+      <meta charset="UTF-8">
+      <script>
+        window.onload = function() {
+          // 声明函数的3种方法
+          //1
+          function moveTo(numm1,num2) {
+            return num1+num2;
+          }
+
+          //
+          var moveTo = function(num1,num2) {
+            return num1 + num2;
+          }
+
+          //javascript中没有重载，后面的会覆盖前面的
+          var moveTo = new Function("num1","num2","return num1+num2;");
+
+          var fn = moveTo;
+
+          // 函数名不带括号。代表指向函数的指针，带括号表示函数调用
+
+        };
+      </script>
+  </head>
+  <body>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+	<script>
+		window.onload = function() {
+
+			var str = "abc";
+			var str2 = str.substring(2);
+
+
+			//string，number，boolean类型为基本包装类型，与引用类型最大的区别在于对象的生命周期。
+			//引用类型在执行流离开当前作用域之前一直保存在内存中
+			//基本包装类型只存在于一行代码的执行瞬间，然后立即被销毁,不能在运行时为基本类型添加属性和方法
+
+
+			alert(str2.color="red");  //red
+ 
+			str2.color = "red";			
+			alert(str2.color);        //undefine
+
+			//显示的调用基本封装类型的构造类型，typeof返回object
+
+			var str3 = new String();	//使用构造函数创建的对象可以添加属性
+			str3.color = "blue";
+
+			alert(str3.color);
+			alert(typeof str3);
+			alert(typeof str2);
+
+			
+
+		};
+	</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,888 @@
+@import "../basic/reset.css";
+
+body{
+    height: 100px;
+    overflow: hidden;
+}
+
+$imageUrl: "image/";
+
+@keyframes m1star{
+    0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    }
+    33% {
+        -webkit-transform: scale(.9);
+        transform: scale(.9);
+    }
+    66% {
+        -webkit-transform: scale(1.3);
+        transform: scale(1.3);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@keyframes m1man{
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 210px 0;
+    }
+}
+
+@keyframes m2fall1 {
+    0% {
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    }
+    35% {
+        -webkit-transform: translate3d(0,0px,0);
+        transform: translate3d(0,0px,0);
+    }
+    38% {
+        -webkit-transform: translate3d(0,5px,0);
+        transform: translate3d(0,5px,0);
+    }
+    50% {
+        -webkit-transform: translate3d(0,0px,0);
+        transform: translate3d(0,0px,0);
+        opacity: 1;
+    }
+    85% {
+        -webkit-transform: translate3d(0,5px,0);
+        transform: translate3d(0,5px,0);
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+    }
+}
+
+@keyframes m2fall2 {
+    0% {
+    opacity: 0;
+        -webkit-transform: translate3d(0,-30px,0);
+        transform: translate3d(0,-30px,0);
+    }
+    30% {
+        opacity: 1;
+        -webkit-transform: translate3d(0,-30px,0);
+        transform: translate3d(0,-30px,0);
+    }
+    65% {
+        opacity: 1;
+        -webkit-transform: translate3d(0,10px,0);
+        transform: translate3d(0,10px,0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+    }
+}
+
+@keyframes m2ball {
+    0% {
+        opacity: 1;
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+    }
+    50% {
+        opacity: 1;
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+       
+    }
+    40% {
+        opacity: 0.5;
+       
+    }
+    70% {
+        opacity: 0.8;
+       
+    }
+    100% {
+        opacity: 1;
+       
+    }
+}
+
+@keyframes fadeInTo {
+    0% {
+        opacity: .4;
+        -webkit-transform: translate3d(0px, 20px,0);
+        transform: translate3d(0px, 20px,0);
+    }
+    60% {
+        opacity: .7;
+        -webkit-transform: translate3d(0px, 20px,0);
+        transform: translate3d(0px, 20px,0);
+    }
+    
+    100% {
+        opacity: 1;
+        -webkit-transform: translate3d(0px, 0,0);
+        transform: translate3d(0px, 0,0);
+    }
+}
+
+@keyframes fall {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-50%,-30px,0);
+        transform: translate3d(-50%,-30px,0);
+    }
+    80% {
+        opacity: 1;
+        -webkit-transform: translate3d(-50%,5px,0);
+        transform: translate3d(-50%,5px,0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translate3d(-50%,0,0);
+        transform: translate3d(-50%,0,0);
+    }
+}
+
+@keyframes m3pop{
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(30px,20px,0) scale(0.7);
+        transform: translate3d(30px,20px,0) scale(0.7);
+    }
+    90% {
+        opacity: 1;
+        -webkit-transform: translate3d(0,0,0) scale(1.1);
+        transform: translate3d(0,0,0) scale(1.1);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translate3d(0px,0px,0) scale(1);
+        transform: translate3d(0px,0px,0) scale(1);
+    }
+}
+
+@keyframes m4cloud {
+    0% {
+       
+        -webkit-transform: translate3d(-100%,0,0);
+        transform: translate3d(-100%,0,0);
+    }
+  
+
+    100% {
+        -webkit-transform: translate3d(0px,0px,0);
+        transform: translate3d(0px,0px,0);
+    }
+}
+
+@keyframes m4run {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 540px 0;
+    }
+}
+
+
+@keyframes m4walk {
+    0% {
+        -webkit-transform: translate3d(-60px,0px,0);
+        transform: translate3d(-60px,0,0);
+        opacity: 0;
+    }
+    10% {
+        opacity: .8;
+    }
+    100% {
+        -webkit-transform: translate3d(0px,0px,0);
+        transform: translate3d(0,0,0);
+         opacity: .9;
+    }
+}
+#frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    height: 100%;
+    width: 100%;
+    z-index: 22;
+    overflow: hidden;
+
+   
+    
+    .inner {
+        height: 100%;
+        position: relative;
+        touch-action: none;
+        
+        transition: all 500ms ease;
+        .loading {
+            position: relative;
+            height: 100%;
+            background: #142441;
+            .center-obj {
+                width: 164px;
+                height: 240px;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate3d(-50%,-50%,0);
+                .J-star {
+                    position: absolute;
+                    background-image: url(#{$imageUrl}loading-imp.32@2x.png); 
+                    background-size: 98px 50px;
+                    background-position: -82px 0;
+                }
+                @mixin star_content($t,$l,$w,$h) {
+                    top: #{$t}px;
+                    left: #{$l}px;
+                    width: #{$w}px;
+                    height: #{$h}px;
+                }
+                .ele_star1 {
+                    @include star_content(20,103,10,10);
+                     animation: ease 1.5s m1star infinite;
+                }
+                .ele_star2 {
+                    @include star_content(87,130,7,7);
+                    background-position: -82px -17px;
+                    animation: ease 2s m1star infinite;
+                }
+                .ele_star3 {
+                    background-position: -82px -34px;
+                    @include star_content(164,25,6,6);
+                    animation: ease 3s m1star infinite;
+                }
+                .ele_star4 {
+                    @include star_content(74,35,10,10);
+                    animation: ease 2s m1star infinite;
+                }
+                .ele_man {
+                    position: absolute;
+                    width: 70px;
+                    height: 163px;
+                    top: 30px;
+                    left: 50%;
+                    margin-left: -35px;
+                    transform-style: preserve-3d;
+                    -webkit-transform-style: preserve-3d;
+                    background-image: url(#{$imageUrl}m1-man.32@2x.png);
+                    background-size: 210px 163px;
+
+                    -webkit-animation-timing-function: steps(3,start);
+                    animation-timing-function: steps(3,start);
+         
+                    -webkit-animation-duration: .2s;
+                    animation-duration: .2s;
+                    
+                    -webkit-animation-name: m1man;
+                    animation-name: m1man;
+                    -webkit-animation-delay: .5s;
+                    animation-delay: .5s;
+                    
+                    animation-iteration-count: infinite;
+                    -webkit-animation-iteration-count: infinite;
+                    
+                    animation-direction: alternate;
+                    -webkit-animation-direction: alternate;
+                }  
+               
+                .btn-action {
+                    width: 160px;
+                    height: 42px;
+                    border-radius: 24px;
+                    border: 1px solid #d5eefe;
+                    margin: 200px auto 0 auto;
+                    display: block;
+                    .btn-action-inner {
+                        width: 80px;
+                        height: 21px;
+                        margin: 12px auto 0 auto;
+                        background-image: url(#{$imageUrl}loading-imp.32@2x.png);
+                        background-size: 98px 50px;
+                        background-position: 0 -27px;
+                    }
+                 } 
+             
+              
+
+            }
+        }
+        
+        .page {
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+
+            .music-wrap {
+                position: absolute;
+                top: 15px;
+                right: 15px;
+                opacity: 0;
+                i {
+                    width: 28px;
+                    height: 28px;
+                    display: block;
+
+                    font-size: 100%;
+                    background-image: url(#{$imageUrl}m-animate-2-imp.32@2x.png);
+                    background-size: 922px 135px;
+                    background-position: -632px -93px;                    
+                }
+                i.off {
+                    background-position: -661px -93px;                    
+                }
+            }
+
+            .btn-Gotop.btn-action {
+                position: absolute;
+                right: 20px;
+                bottom: 20px;
+
+                .btn-Go {
+                    display: block;
+                    background-image: url(#{$imageUrl}m-animate-2-imp.32@2x.png);
+                    background-size: 922px 135px;
+                    background-position: 0 -120px;
+                    width: 20px;
+                    height: 11px;
+                    z-index: 9999;
+                    -webkit-tap-highlight-color: rgba(255,255,255,0);
+                    animation: fade 1.5s .2s ease infinite;
+                    -webkit-animation: fade 1.5s .2s infinite;
+                }
+            }
+        }  
+        
+        .page1 {
+            background: #142441;
+            .center-obj {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate3d(-50%, -50%, 0);
+                
+                width: 320px;
+                height: 328px;
+                .ele-land {
+                    position: absolute;
+                    left: 50%;
+                    bottom: 0;
+                    margin-left: -115px;
+                    
+                    width: 230px;
+                    height: 144px;
+
+
+                    background-size: 643px 152px;
+                    background-image: url(./#{$imageUrl}m-animate-1-imp.32@2x.png);
+                    background-position: 0 0;
+                }
+                .ele-phone {
+                    position: absolute;
+                    width: 121px;
+                    height: 245px;
+                    left: 50%;
+
+                    margin-left: -60px;
+                    bottom: 51px;
+                    opacity: 0;
+                    
+                    background-image: url(./#{$imageUrl}m2-phone.32@2x.png);
+                    background-size: 121px 245px;
+                }
+                .ele-ballon {
+                    position: absolute;
+
+                    right: 50px;
+                    bottom: 200px;
+                    opacity: 0;
+                    
+                    width: 69px;
+                    height: 97px;
+                    background-image: url(#{$imageUrl}m-animate-1-imp.32@2x.png);
+                    background-size: 643px 152px;
+                    background-position: -231px 0;
+                }
+                .ele-rocket {
+                    position: absolute;
+                   
+                    width: 38px;
+                    height: 78px;
+                    bottom: 56px;
+                    right: 50px;
+                    opacity: 0;
+                    
+                    background-image: url(#{$imageUrl}m-animate-1-imp.32@2x.png);
+                    background-size: 643px 152px;
+                    background-position: -342px 0;
+                }   
+                .ele-txt {
+                    position: absolute;
+                    top: -20px;
+                    left: 50%;
+                    width: 211px;
+                    height: 35px;
+
+                    opacity: 0;
+                    background-image: url(#{$imageUrl}m-animate-1-imp.32@2x.png);
+                    background-size: 643px 152px;
+                    background-position: -370px -79px;
+                    
+
+                    -webkit-transform: translate3d(-50%,0,0);
+                    transform: translate3d(-50%,0,0);
+                }
+                .ele-man {
+                        position: absolute;
+                        background-image: url(#{$imageUrl}m-animate-1-imp.32@2x.png);
+                        background-size: 643px 152px;
+                        background-position: -301px 0;
+                        width: 40px;
+                        height: 85px;
+                        left: 52px;
+                        bottom: 55px;
+                        opacity: 0;
+                }
+            }
+
+        }
+        .page1.page1-animate {
+            .center-obj {
+                .ele-land {
+                    animation-name: m2fall1;
+                    -webkit-animation-name: m2fall1;
+                    animation-duration: 1s;
+                    -webkit-animation-duration: 1s;
+                    animation-delay: .5s;
+                    -webkit-animation-delay: .5s;
+                    animation-timing-function: ease-in;
+                    -webkit-animation-timing-function: ease-in;
+                    -webkit-animation-fill-mode: forwards;
+                    animation-fill-mode: forwards;
+                    animation-iteration-count: 1;
+                    -webkit-animation-iteration-count: 1;
+                }
+                .ele-phone {
+                    animation-name: m2fall2;
+                    -webkit-animation-name: m2fall2;
+                    animation-duration: .5s;
+                    -webkit-animation-duration: .5s;
+                    animation-delay: 1.2s;
+                    -webkit-animation-delay: 1.2s;
+                    animation-timing-function: ease-in;
+                    -webkit-animation-timing-function: ease-in;
+                    -webkit-animation-fill-mode: forwards;
+                    animation-fill-mode: forwards;
+                    animation-iteration-count: 1;
+                    -webkit-animation-iteration-count: 1;
+                }
+                .ele-ballon {
+                    animation-name: m2ball;
+                    -webkit-animation-name: m2ball;
+                    animation-duration: 3s;
+                    -webkit-animation-duration: 3s;
+                    animation-delay: 1.5s;
+                    -webkit-animation-delay: 1.5s;
+                    animation-timing-function: ease-in;
+                    -webkit-animation-timing-function: ease-in;
+                    animation-fill-mode: forwards;
+                    -webkit-animation-fill-mode: forwards;
+                    animation-iteration-count: infinite;
+                    -webkit-animation-iteration-count: infinite;
+                }
+                .ele-rocket {
+                    animation-name: m2fall1;
+                    -webkit-animation-name: m2fall1;
+                    animation-duration: 1s;
+                    -webkit-animation-duration: 1s;
+                    animation-delay: .5s;
+                    -webkit-animation-delay: .5s;
+                    animation-timing-function: ease-in;
+                    -webkit-animation-timing-function: ease-in;
+                    -webkit-animation-fill-mode: forwards;
+                    animation-fill-mode: forwards;
+                    animation-iteration-count: 1;
+                    -webkit-animation-iteration-count: 1;
+                }
+                .ele-txt,.ele-man {
+                    animation-name: fade;
+                    -webkit-animation-name: fade;
+                    animation-duration: .5s;
+                    -webkit-animation-duration: .5s;
+                    animation-delay: .7s;
+                    -webkit-animation-delay: .7s;
+                    animation-timing-function: ease-in;
+                    -webkit-animation-timing-function: ease-in;
+                    -webkit-animation-fill-mode: forwards;
+                    animation-fill-mode: forwards;
+                    animation-iteration-count: 1;
+                    -webkit-animation-iteration-count: 1;
+                }
+            }
+            .music-wrap {
+                animation-name: fade;
+                -webkit-animation-name: fade;
+                animation-duration: .5s;
+                -webkit-animation-duration: .5s;
+                animation-delay: 1s;
+                -webkit-animation-delay: 1s;
+                animation-timing-function: ease-in;
+                -webkit-animation-timing-function: ease-in;
+                -webkit-animation-fill-mode: forwards;
+                animation-fill-mode: forwards;
+                animation-iteration-count: 1;
+                -webkit-animation-iteration-count: 1;
+            }
+        }
+
+        .page2 {
+            background: #178bc1;
+            .center-obj {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate3d(-50%, -50%, 0);
+                
+                width: 100%;
+                height: 328px;
+                .ele-phone {
+                    position: absolute;
+                    width: 179px;
+                    height: 243px;
+                    top: 0;
+                    left: 50%;
+                    -webkit-transform: translate3d(-50%,0,0);
+                    transform: translate3d(-50%,0,0);
+                    opacity: 1;    
+                    background-image: url(#{$imageUrl}m5-phone.32@2x.png);
+                    background-size: 179px 243px;
+                }
+                .ele-pop1 {
+                    position: absolute;
+                    width: 113px;
+                    height: 119px;
+                    left: 35px;
+                    top: -12px;
+                    opacity: 0;
+
+                    background-image: url(#{$imageUrl}m-animate-2-imp.32@2x.png);
+                    background-size: 922px 135px;
+                    background-position: 0 0;
+                }
+                .ele-pop2 {
+                    position: absolute;
+                    bottom: 115px;
+                    left: 37px;
+                    
+                    width: 96px;
+                    height: 94px;
+                    opacity: 0;
+
+                    background-image: url(#{$imageUrl}m-animate-2-imp.32@2x.png);
+                    background-position: -114px 0;
+                    background-size: 922px 135px;
+                    
+                }
+                .ele-pop3 {
+                    position: absolute;
+                    background-image: url(#{$imageUrl}m-animate-2-imp.32@2x.png);
+                    background-position: -211px 0;
+                    background-size: 922px 135px;
+                    width: 91px;
+                    height: 94px;
+                    bottom: 158px;
+                    right: 23px;
+                    opacity: 0;
+                }
+                .ele-ball {
+                        position: absolute;
+                        background-image: url(#{$imageUrl}m-animate-2-imp.32@2x.png);
+                        background-position: -303px -76px;
+                        background-size: 922px 135px;
+                        width: 37px;
+                        height: 51px;
+                        bottom: 80px;
+                        right: 50px;
+                        opacity: 0;
+                }
+            }
+        }
+        .page2.page2-animate {
+            .center-obj {
+                .ele-phone {
+                    animation-name: fall;
+                    -webkit-animation-name: fall;
+                    animation-duration: .3s;
+                    -webkit-animation-duration: .3s;
+                    animation-delay: .5s;
+                    -webkit-animation-delay: .5s;
+                    animation-timing-function: ease-in;
+                    -webkit-animation-timing-function: ease-in;
+                    -webkit-animation-fill-mode: forwards;
+                    animation-fill-mode: forwards;
+                    animation-iteration-count: 1;
+                    -webkit-animation-iteration-count: 1;
+                }
+                .ele-pop1 {
+                    animation-name: m3pop;
+                    -webkit-animation-name: m3pop;
+                    animation-duration: .3s;
+                    -webkit-animation-duration: .3s;
+                    animation-delay: 1s;
+                    -webkit-animation-delay: 1s;
+                    animation-timing-function: ease-in;
+                    -webkit-animation-timing-function: ease-in;
+                    animation-fill-mode: forwards;
+                    -webkit-animation-fill-mode: forwards;
+                    animation-iteration-count: 1;
+                    -webkit-animation-iteration-count: 1;
+                }
+                .ele-pop2 {
+                    animation-name: m3pop;
+                    -webkit-animation-name: m3pop;
+                    animation-duration: .3s;
+                    -webkit-animation-duration: .3s;
+                    animation-delay: 1.3s;
+                    -webkit-animation-delay: 1.3s;
+                    animation-timing-function: ease-in;
+                    -webkit-animation-timing-function: ease-in;
+                    animation-fill-mode: forwards;
+                    -webkit-animation-fill-mode: forwards;
+                    animation-iteration-count: 1;
+                    -webkit-animation-iteration-count: 1;
+                }
+
+                .ele-pop3 {
+                    animation-name: m3pop;
+                    -webkit-animation-name: m3pop;
+                    animation-duration: .5s;
+                    -webkit-animation-duration: .5s;
+                    animation-delay: 1.6s;
+                    -webkit-animation-delay: 1.6s;
+                    animation-timing-function: ease-in;
+                    -webkit-animation-timing-function: ease-in;
+                    animation-fill-mode: forwards;
+                    -webkit-animation-fill-mode: forwards;
+                    animation-iteration-count: 1;
+                    -webkit-animation-iteration-count: 1;
+                }
+                
+                .ele-ball {
+                    animation-name: m2ball;
+                    -webkit-animation-name: m2ball;
+                    animation-duration: 3s;
+                    -webkit-animation-duration: 3s;
+                    animation-delay: 1.6s;
+                    -webkit-animation-delay: 1.6s;
+                    animation-timing-function: ease-in;
+                    -webkit-animation-timing-function: ease-in;
+                    animation-fill-mode: forwards;
+                    -webkit-animation-fill-mode: forwards;
+                    animation-iteration-count: infinite;
+                    -webkit-animation-iteration-count: infinite;
+                }
+            }
+            .music-wrap{
+                animation-name: fade;
+                -webkit-animation-name: fade;
+                animation-duration: .5s;
+                -webkit-animation-duration: .5s;
+                animation-delay: 1s;
+                -webkit-animation-delay: 1s;
+                animation-timing-function: ease-in;
+                -webkit-animation-timing-function: ease-in;
+                -webkit-animation-fill-mode: forwards;
+                animation-fill-mode: forwards;
+                animation-iteration-count: 1;
+                -webkit-animation-iteration-count: 1;
+            }
+        }
+
+        .page3 {
+            background: #97c96a;
+            .ele-bg {
+                position: absolute;
+                top: 0;
+                left: 0p;
+                width: 100%;
+                height: 269px;
+                
+                background-image: url( #{$imageUrl}m6-bg1.32@2x.png);
+                background-position: 0 0;
+                background-size: 100% 269px;
+            }
+            .center-obj {
+                position: absolute;
+                width: 100%;
+                height: 343px;
+                top: 86px;
+
+                .ele-cloud {
+                    position: absolute;
+                    top: 0;
+                    left: 45px;
+
+                    width: 52px;
+                    height: 26px;
+                    
+                    background-image: url(image/m-animate-3-imp.32@2x.png);
+                    background-size: 1076px 141px;
+                    background-position: -312px -106px;
+                }   
+                .ele-building {
+                    position: absolute;
+                    top: 92px;
+                    left: 50%;
+
+                    width: 320px;
+                    height: 105px;
+                    
+                    -webkit-transform: translate3d(-50%,0,0);
+                    transform: translate3d(-50%,0,0);
+                    background-image: url(image/m-animate-3-imp.32@2x.png);
+                    background-position: 0 0;
+                    background-size: 1076px 141px;
+                }
+                .ele-phone {
+                    position: absolute;
+                    
+                    width: 209px;
+                    height: 250px;
+                    top: -5px;
+                    left: 50%;
+                    -webkit-transform: translate3d(-50%,0,0);
+                    transform: translate3d(-50%,0,0);
+                    opacity: 0;
+                    background-image: url(image/m6-phone.32@2x.png);
+                    background-size: 209px 250px;
+                }
+                .walk{
+                    opacity: 0;
+                    .ele-run {
+                        position: absolute;
+                        width: 60px;
+                        height: 67px;
+                        top: 123px;
+                        right: 30px;                    
+                        opacity: .7;
+                        background-image: url(image/mrunner.32@2x.png);
+                        background-size: 540px 67px;
+                        
+                    } 
+                }  
+            }
+        }
+
+        .page3.page3-animate {
+
+            .center-obj {
+                .ele-cloud {
+                    -webkit-animation-name: m4cloud;
+                    animation-name: m4cloud;
+                    -webkit-animation-duration: 3s;
+                    animation-duration: 3s;
+                    -webkit-animation-delay: .5s;
+                    animation-delay: .5s;
+                    -webkit-animation-timing-function: ease;
+                    animation-timing-function: ease;
+                    -webkit-animation-fill-mode: forwards;
+                    animation-fill-mode: forwards;
+                    -webkit-animation-iteration-count: 1;
+                    animation-iteration-count: 1;
+                    -webkit-animation-direction: alternate;
+                    animation-direction: alternate;
+                }
+                .ele-phone {
+                        animation-name: fall;
+                        -webkit-animation-name: fall;
+                        animation-duration: .3s;
+                        -webkit-animation-duration: .3s;
+                        animation-delay: .5s;
+                        -webkit-animation-delay: .5s;
+                        animation-timing-function: ease-in;
+                        -webkit-animation-timing-function: ease-in;
+                        animation-fill-mode: forwards;
+                        -webkit-animation-fill-mode: forwards;
+                        animation-iteration-count: 1;
+                        -webkit-animation-iteration-count: 1;
+                }
+                
+                .walk {
+                    -webkit-animation-name: m4walk;
+                    animation-name: m4walk;
+                    -webkit-animation-duration: 3s;
+                    animation-duration: 3s;
+                    -webkit-animation-delay: .5s;
+                    animation-delay: .5s;
+                    -webkit-animation-timing-function: ease;
+                    animation-timing-function: ease;
+                    -webkit-animation-fill-mode: forwards;
+                    animation-fill-mode: forwards;
+                    -webkit-animation-iteration-count: 1;
+                    animation-iteration-count: 1;
+                    -webkit-animation-direction: alternate;
+                    animation-direction: alternate;
+                    .ele-run {
+                        -webkit-animation-timing-function: steps(9,start);
+                        animation-timing-function: steps(9,start);
+                        -webkit-animation-duration: .6s;
+                        animation-duration: .6s;
+                        -webkit-animation-name: m4run;
+                        animation-name: m4run;
+                        -webkit-animation-delay: .6s;
+                        animation-delay: .6s;
+                        animation-iteration-count: infinite;
+                        -webkit-animation-iteration-count: infinite;
+                        animation-direction: alternate;
+                        -webkit-animation-direction: alternate;
+                    }
+
+                }
+
+            }
+            .music-wrap {
+                animation-name: fade;
+                -webkit-animation-name: fade;
+                animation-duration: .5s;
+                -webkit-animation-duration: .5s;
+                animation-delay: 1s;
+                -webkit-animation-delay: 1s;
+                animation-timing-function: ease-in;
+                -webkit-animation-timing-function: ease-in;
+                -webkit-animation-fill-mode: forwards;
+                animation-fill-mode: forwards;
+                animation-iteration-count: 1;
+                -webkit-animation-iteration-count: 1;
+            }
+        }
+    }
+
+
+}
+

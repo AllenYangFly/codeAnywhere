@@ -1,0 +1,334 @@
+// 嵌套
+.box{
+	color:green;
+	.top{
+		color:red;
+	}
+	.content{
+		color:blue;
+	}
+}
+
+
+
+
+// 导入另一个scss，@import位置随意，会自动编译css，但是如果导入成css泽不会做任何操作，原样输出css
+@import "test2.scss";
+
+
+
+
+// 注释有两种，一种双斜线，不会被解析成css注释
+/*
+ * 会被解析成css注释
+ */
+
+
+
+
+// 变量，以$开头，而且后面紧跟变量名，
+$bgColor: #ccc;
+
+
+
+
+// 如果后面跟上!default,则表示为默认值，如果要覆盖，则在默认变量之前重新声明,在组件化开发很有用
+$bgColor: red !default;
+body{
+	background:$bgColor;
+}
+
+
+
+
+// 特殊变量引用，若定义的变量不是作为属性值使用，则需要加上#{$name}
+$direction: top !default;
+
+body{
+	border-#{$direction}:10px solid #000;
+}
+
+
+
+// 多值变量
+// list    相当于数组
+$linkColor: blue red #ccc !default;
+a{
+	//list nth($name,num)取值函数
+	color: nth($linkColor, 1);
+	
+	&:hover{
+		color : nth($linkColor, 2);
+	}
+} 
+// map    相当于java中的map  key,value相对应
+$headings: ( h1:2em, h2:1.5em, h3:1.2em );
+
+@each $header, $size in $headings {
+  #{$header} {
+    font-size: $size;
+  }
+}
+
+
+
+
+// 作用域  !global关键字
+// 全局变量
+$h1Color: red;
+h1{
+	// 局部变量
+	$h1Color: #ccc;
+	// 加上global变量变为全局变量
+	$h1Color: #ccc !global;
+	color: $h1Color;
+}
+body{
+	background: $h1Color;
+	margin: 0;
+}
+
+
+
+
+// 嵌套  默认嵌套继承父级元素的样式
+// 选择器嵌套  使用&代表父级选择器
+h1{
+	color: red;
+	&:hover {
+		color: blue;
+	}
+}
+// 属性嵌套   不推荐使用
+h1{
+	border: {
+		left: {
+			width: 5px;
+			color: #c0c0c0;
+		}
+		right: {
+			width: 5px;
+			color: #c1c1c1;
+		}
+	}
+}
+
+
+
+//@at-root 跳出父级元素继承
+//单个跳出循环
+.parent{
+	color: red;
+	@at-root .child{
+		width: 100px;
+	}
+}
+// 结果是
+// .parent{
+// 	color: red;
+// }
+
+// .child{
+// 	width:100px;
+// }
+
+// 多个跳出循环
+.parent {
+	color: red;
+	@at-root {
+		.child-1 {
+			width:200px;
+		}
+		.child-2 {
+			width:300px;
+		}
+	}
+}
+// 结果是 
+// .parent {
+// 	color: red;
+// }
+// .child-1 {
+// 	width: 200px;
+// }
+// .child-2 {
+// 	width: 300px;
+// }
+
+// @at-root(without:param)  1,all 2,rule(默认) 3,media 4,support
+// widout:media  只跳出media，不跳出parent
+@media print {
+	.parent {
+		color: red;
+		@at-root(without:media) {
+			.child-3{
+				font-size: 20px;
+			}
+		}
+	}
+}
+
+// widthout:all   跳出media，support和父级
+@media print {
+	.parent-outer{
+		.parent-inner {
+			color: blue;
+			@at-root(without:all) {
+				.child-4 {
+					font-size: 22px;
+				}
+			}
+		}
+	}
+}
+
+// @at-root 与 & 配合使用
+.child{
+	@at-root .parent &{
+		font-size: 15px;
+	}
+}
+// 应用于keyframes
+.demo{
+	animation: action 3s ease;
+	@at-root{
+		@keyframes action{
+			left:200px;
+		}
+	}
+}
+
+
+
+// @mixin定义通用css代码块   通过@include调用
+// 无参数的
+@mixin centerblock{
+	margin:0 auto;
+}
+.box{
+	@include centerblock;
+}
+// 有参数的,可以直接设置默认值
+@mixin getPostion($position:relative){
+	position: $position;
+}p
+.box {
+	@include getPostion(absolute);
+}
+// 有多个参数的
+@mixin getStyle($color:red,$font-size:12px) {
+	color: $color; 
+	font-size: $font-size;
+}
+.box{
+	@include getStyle(blue,15px);
+}
+// 有多个不确定参数 后面跟...
+@mixin box-Shadow($shadow...){
+	-webkit-box-shadow:$shadow;
+  	-moz-box-shadow:$shadow;
+  	box-shadow:$shadow;
+}
+.box{
+	@include box-Shadow(0 2px 2px rgba(0,0,0,.3),0 3px 3px rgba(0,0,0,.3),0 4px 4px rgba(0,0,0,.3));
+}
+// content  
+@mixin max-screen($res){
+	@media only sreen and(max-width:$res){
+		@content;
+	}
+}
+
+@include max-screen(400px){
+	body{
+		color:red;
+	}
+}
+
+
+
+
+// 继承   @extend,建议使用@mixin，不要使用继承的方式
+h1{
+	color:red;
+}
+
+h2{
+	@extend h1;
+}
+
+// 占位符,所谓占位符就是使用这种的方法进行编写scss，如果不调用，则不会生成多余的css,通过@extend调用
+%ir{
+	color: red;
+}
+%clear{
+	content:"";
+	display:block;
+	clear:both;
+	visibility:hidden;
+}
+body{
+	@extend %clear;
+}
+
+
+
+// @function   常用系统函数lighten($color,$amount)和darken($color,$amount)
+$baseFontSize: 10px !default;
+$gray: #ccc !default;
+@function pxToRem($px){
+	@return $px/$baseFontSize*1rem;
+}
+body{
+	font-size:$baseFontSize;
+	color: lighten($gray,10%);
+	// vertical:
+}
+
+
+
+
+// 运算 加减乘除运算，运算符前后必须空一个空格
+$baseFontSize: 14px !default;
+$baseLineHeight: 1.5 !default;
+$baseGap: $baseFontSize * $baseLineHeight !default;
+body {
+	// 15px
+	font-size: $baseGap;
+} 
+
+
+
+// 判断
+// @if    @else
+$lte7: true;
+p {
+	@if lte7 {	
+		color: red;
+	}
+}
+
+
+
+// for
+// @for $i from 1 through 3   ----> i<=3
+// @for $i to 1 through 3   ----> i<3 
+@for $i from 1 through 3{
+	.item-#{$i}{
+		color: red;
+	}
+}
+
+
+
+
+
+// each
+// @each $animal in $animal-list  animal-list 
+
+
+
+
+
+
+

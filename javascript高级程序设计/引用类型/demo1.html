@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript">
+			window.onload = function() {
+
+				//数组的方法
+
+				//splice(a,b) 从a开始,删除b个元素
+				//splice(a,b,"value1","value2")  b=0  插入value1,value2
+				//splice(a,b,"value1",value2)    b>0  替换a到a+2的数组变为value1,value2
+				//splice替换和删除的返回值不是一个数组
+				
+				var arr = new Array("1","2","4");
+
+				// alert(arr.toString());
+				// alert(arr.splice(1,2));
+
+				// arr.splice( 1,0,"2.1","2.2");
+
+				arr.splice(1,1,1.5,2.5)
+				alert(arr);
+				// alert();
+
+			};
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

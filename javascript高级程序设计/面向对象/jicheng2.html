@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script>
+	window.onload = function() {
+		function personSuper() { }
+
+		personSuper.prototype.name =  "allen";
+
+		function personSub() { }
+		
+		personSub.prototype.name = "yang";
+
+		// 重写personsub失效，在继承中重写必需放在继承代码之后
+		// personSub.prototype.name = "1";
+
+		personSub.prototype = new personSuper();
+
+		//重写添加原型方法属性需要在继承代码之后才能生效
+
+		personSub.prototype.age = "11";
+		
+		personSub.prototype.name = "yangyi";
+
+		var p = new personSub();
+
+		alert( p.age );
+		
+		//修改p.name可以直接修改原型中的属性，所以造成很不安全
+		alert( p.name = "allenyang" );
+
+		var p2 = new personSub();
+
+		alert( p.name ); 
+	};
+	</script>
+</head>
+<body>
+
+</body>
+</html>

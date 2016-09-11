@@ -1,0 +1,24 @@
+<!DCOTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script>
+      window.onload = function() {
+        // reduce从前到后  reduceRight从后到前
+        var arr = new Array(1,2,3,4,5);
+        var num = 0;
+
+        //第一个参数代表前一个值，数组的下一次运算会将上一次的返回值作为该函数的第一项
+        //第二个参数为当前项的值
+        //第三个参数为当前项的下标
+        //第四个参数为这个数组对象本身
+        num = arr.reduce(function(prev,cur,index,array) {
+          return prev + cur;
+        });
+        alert(num);
+      };
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

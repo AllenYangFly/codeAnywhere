@@ -1,0 +1,175 @@
+@charset "UTF-8";
+.box {
+  color: green;
+}
+.box .top {
+  color: red;
+}
+.box .content {
+  color: blue;
+}
+
+body {
+  background: #c0c0c0;
+}
+
+/*
+ * 会被解析成css注释
+ */
+body {
+  background: #ccc;
+}
+
+body {
+  border-top: 10px solid #000;
+}
+
+a {
+  color: blue;
+}
+a:hover {
+  color: red;
+}
+
+h1, h2 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.2em;
+}
+
+h1, h2 {
+  color: #ccc;
+}
+
+body {
+  background: #ccc;
+  margin: 0;
+}
+
+h1, h2 {
+  color: red;
+}
+h1:hover, h2:hover {
+  color: blue;
+}
+
+h1, h2 {
+  border-left-width: 5px;
+  border-left-color: #c0c0c0;
+  border-right-width: 5px;
+  border-right-color: #c1c1c1;
+}
+
+.parent {
+  color: red;
+}
+.child {
+  width: 100px;
+}
+
+.parent {
+  color: red;
+}
+.child-1 {
+  width: 200px;
+}
+
+.child-2 {
+  width: 300px;
+}
+
+@media print {
+  .parent {
+    color: red;
+  }
+}
+.parent .child-3 {
+  font-size: 20px;
+}
+
+@media print {
+  .parent-outer .parent-inner {
+    color: blue;
+  }
+}
+.child-4 {
+  font-size: 22px;
+}
+
+.parent .child {
+  font-size: 15px;
+}
+
+.demo {
+  animation: action 3s ease;
+}
+@keyframes action {
+  left: 200px;
+}
+.box {
+  margin: 0 auto;
+}
+
+.box {
+  position: absolute;
+}
+
+.box {
+  color: blue;
+  font-size: 15px;
+}
+
+.box {
+  -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3), 0 3px 3px rgba(0, 0, 0, 0.3), 0 4px 4px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3), 0 3px 3px rgba(0, 0, 0, 0.3), 0 4px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3), 0 3px 3px rgba(0, 0, 0, 0.3), 0 4px 4px rgba(0, 0, 0, 0.3);
+}
+
+@media only sreen and (max-width: 400px) {
+  body {
+    color: red;
+  }
+}
+h1, h2 {
+  color: red;
+}
+
+body {
+  content: "";
+  display: block;
+  clear: both;
+  visibility: hidden;
+}
+
+body {
+  font-size: 10px;
+  color: #e6e6e6;
+}
+
+body {
+  font-size: 15px;
+}
+
+p {
+  color: red;
+}
+
+.item-1 {
+  color: red;
+}
+
+.item-2 {
+  color: red;
+}
+
+.item-3 {
+  color: red;
+}
+
+/*# sourceMappingURL=text.css.map */

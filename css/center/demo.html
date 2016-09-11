@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <style>
+
+        .wrap {
+            width: 500px;
+            height: 500px;
+            border: 10px solid #000;
+            margin: 100px auto;
+            display: table;
+            position: relative;
+        }
+
+     /*   .box{
+                     
+            position: absolute;
+            margin: auto;
+            width: 100px;
+            height: 100px;
+            background: #337a96;
+            top:0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+
+/*            transform: translate( -50%, -50% );          
+*/        
+        
+            .wrap .box {
+                width: 100px;
+                height: 100px;
+                background: #337a96 !important;
+                text-align: center;
+               
+                display: table-cell;
+                font-size: 200px;
+                text-decoration: underline;
+            }
+
+            .wrap .box span strong {
+                /*text-decoration: none;*/
+                color: green;
+                
+            }
+
+            *{
+                color: blue;
+                /*通配 大于 继承*/
+            }
+            .box {
+                color: red;
+
+            }
+
+            .box span{
+                /*font-family: "summr_sketch";*/
+                font-size: 20px;
+                line-height: 3em;
+                
+            }
+
+            @font-face {
+                font-family: "summr_sketch";
+                src: url(/Users/allenyang/Downloads/bb5889/summr_sketch.ttf) format("truetype");
+            }
+
+            .text {
+                margin-bottom: 400px;
+                margin: 0 auto;
+
+                width: 300px;
+                height: 300px;
+                background: #ccc;
+                padding: 50px;
+            }
+            .text .box {
+                background: #c0c0c0;
+               
+                height: 100px;
+                margin: 0 auto;
+                padding: inherit;
+                word-spacing: 2em;
+                text-transform: lowercase;
+                text-decoration: underline;
+                color: green;
+               word-wrap: break-word;
+               direction: rtl;
+               /* text-overflow: ellipsis;
+                overflow: hidden;
+
+            */
+                background: red;
+                border: 10px dotted #000;
+        }
+            .text .box strong {
+                text-decoration: underline;
+                color: green;
+                text-shadow: green 5px 5px 10px;
+            }
+    </style>
+    <script>
+        window.onload= function() {
+
+        };
+
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="box" style="background: red;">
+            <span>    a<strong>sd</strong>sd
+            </span>
+        </div>
+    </div>
+    <div class="text">
+        <div class="box">
+           asdasdK
+
+        </div>
+    </div>
+    <div class="content3" style="margin-bottom: 300px;background: orange;">
+        <div style="margin-left: 100px;width: auto;margin-right: auto;background: blue;height: 200px;"></div>
+    </div>
+
+    <div class="content4" style="background: red;">
+    asdasdsa
+        <div style="background: #ccc;width:100px;height: 100px;margin-left: auto;margin-right: auto;margin-top: -100px;"></div>
+    1231232
+    </div>
+</body>
+</html>

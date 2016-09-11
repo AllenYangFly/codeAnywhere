@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>oop</title>
+	<meta charset="UTF-8">
+	<script type="text/javascript">
+		window.onload = function () {
+			// 创建对象的方法
+			// 1.
+			var person = new Object();
+			person.name = "allenyang";
+			person.sayname = function () {
+				alert( this.name);
+			};
+			person.sayname();
+
+			// 2.
+			var person2 = {
+				name : "allenyang2",
+				sayname : function() {
+					alert(this.name);
+				}
+			};
+			person2.sayname();
+			
+
+			// 脚踏两只船的人大抵上都没什么好结果
+			// 创建对象的模式
+
+			// 工厂模式
+			function createPerson(name){
+				var o = new Object();
+				o.name = name;
+				o.showname = function() {
+					alert(this.name);
+				};
+
+				return o;
+			}; 
+
+			var person3 = createPerson("allenyang3");
+			person3.showname();
+
+			// 构造函数模式,通常首字母大写
+			function Person(name) {
+				this.name = name;
+				this.showname = function() {
+					alert(this.name);
+				}
+			}
+
+			var person4 = new Person("allenyang4");
+			var person5 = new Person("owen");
+
+			//constructor属性指向构造函数
+			alert(person4.constructor == person5.constructor);
+
+			// 构造函数模式比工厂模式的优点在于，可以单独产生一种对象类型
+			alert(person4 instanceof Person);
+			person4.showname();
+
+			
+		};
+	</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>多媒体测试</title>
+    <script type="text/javascript">
+        window.onload = function() {
+            var audio = document.querySelector("audio");
+            var aButton = document.querySelectorAll("button");
+
+            // alert(aButton.length);
+            audio.addEventListener("error", function() {
+                var error = video.error;
+                switch( error.code ){
+                    case 1: 
+                        alert("视频在下载过程中被终止");
+                        break;
+                    case 2: 
+                        alert("视频因为网络问题被终止");
+                        break;
+                    case 3:
+                        alert("解码失败");
+                        break;
+                    case 4:
+                        alert("资源不可用或者格式不被支持");
+                        break;
+                } 
+            }, false);
+
+            aButton[0].addEventListener("click", function() {
+                
+                audio.play();
+
+            }, false);
+
+            aButton[1].addEventListener("click", function() {
+                audio.pause();
+
+            }, false);
+
+            aButton[2].addEventListener("click", function() {
+                audio.load();
+            }, false);
+        };
+    </script>
+</head>
+<body>
+    <audio src="周杰伦 - 不该(with aMEI).mp3" autoplay>
+        你的浏览器不支持audio
+    </audio>
+    <video width="640" height="360" src="./sheep.rmvb" poster="http://img1.imgtn.bdimg.com/it/u=2055363866,4163315625&fm=21&gp=0.jpg">
+        您的浏览器不支持video
+    </video><br/>
+    <button id="play"> 
+        开始
+    </button>
+    <button id="stop">
+        暂停
+    </button>
+  
+    <button id="refresh">
+        刷新
+    </button>
+</body>
+</html>

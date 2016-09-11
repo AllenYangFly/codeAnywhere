@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lnag="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <script>
+      window.onload = function () {
+
+        //解释器先解释函数声明，后执行函数表达式，所以顺序可以颠倒
+        alert(addSomeNumber());
+
+        function addSomeNumber( num ) {
+          return 1; 
+        }
+
+        function addSomeNumber( num ) {
+          return 2;
+        }
+
+
+        //this，arguments，callee
+
+        // arguments是一个类似于数组的对象，用来保存函数参数
+        function sum( a, b) {
+          return a+b+" arguments[0] is:"+arguments[0];
+        }
+
+        alert(sum(1,2));
+
+
+
+        //argument对象有一个callee属性，是一个指针，指向拥有这个arguments对象的函数
+        function factorial(num) {
+          if( num<=1 )
+            return 1;
+          else 
+            return num*arguments.callee(num-1);
+        }
+
+        alert(factorial(4));
+
+        //this引用就是函数执行的环境变量,最外侧如果没有，则默认执行环境是window
+        //函数执行的环境变量
+        window.color = "red";
+        var o = {color:"blue"};
+        
+        function sayColor() {
+          alert(this.color);
+        }
+
+        sayColor();
+        o.sayColor = sayColor;
+        o.sayColor();
+
+        //caller：保存当前函数的函数引用，如果在全局作用域中调用，则返回null
+        function outer() {
+          inner();
+        }
+
+        function inner() {
+          alert(arguments.callee.caller);
+        }
+        inner();
+        outer();
+
+      };
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

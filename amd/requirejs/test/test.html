@@ -1,0 +1,88 @@
+  <!DOCTYPE html>
+  <html>
+  <head>
+  	<title></title>
+	<style>
+		ul{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			
+			margin-top: -50px;
+			margin-left: -200px;
+		
+		}
+
+		li{
+			float: left;
+			width: 100px;
+			height: 100px;
+			margin-left: 30px;
+			
+			text-align: center;
+			color: #fff;
+			line-height: 100px;
+			cursor: pointer;
+			
+		}
+		
+		li:nth-of-type(1){
+			background: #D1CBB6;
+		}
+		li:nth-of-type(2){
+			background: #26D17E;
+		}
+		li:nth-of-type(3){
+			background: #D1427B;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			var aLi = document.querySelectorAll("ul li");
+
+			// 1.利用属性值
+			// for(var i = 0; i<aLi.length; i++) {
+			// 	aLi[i].a = i;
+
+			// 	aLi[i].onclick = function() {
+			// 		alert(this.a+1);
+			// 	};
+
+			// }
+
+			// 2.闭包
+			// for(var i=0; i<aLi.length; i++) {
+			// 	(function(i) {
+			// 		aLi[i].onclick = function() {
+			// 			alert(i+1);
+			// 		};
+			// 	})(i);
+			// }
+
+			// 3.es6里面的let关键字
+			for(let i=0; i<aLi.length; i++){
+				aLi[i].onclick = function() {
+					alert(i+1);
+				};
+			}
+
+
+
+		};
+
+		
+		
+	</script>
+  </head>
+  <body>
+  	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+  	</ul>
+  </body>
+  </html>

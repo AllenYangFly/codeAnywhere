@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+	<script>
+	window.onload = function() {
+		function Person() {
+			this.name="owen"
+		}
+
+		Person.prototype.name = "allenyang";
+
+		var person1 = new Person();
+
+
+		//在搜索的时候会先搜索对象的实例，看有没有该属性值，如果有则返回，如果没有则去该实例的原型进行查找，有则返回，没有则继续返回空。
+		console.log(person1.name);
+
+		// 原型的constructor指向这个函数本身
+		console.log(Person.prototype.constructor);
+
+		//创建实例的时候，实例中的内容分为两个部分，一部分是构造函数中的内容，一部分是构造函数的原型对象的内容
+		//isPrototypeOf 该实例是否与该构造函数的原型对象有联系。
+		console.log(Person.prototype.isPrototypeOf(person1));
+
+		// Object.getPrototypeOf()取得该实例的原型对象
+		console.log( Object.getPrototypeOf(person1) == Person.prototype );
+		
+		//不能通过实例来修改原型中的属性值，如果实例新增了与原型中的对象相同的属性和属性值，则实例中的这个属性将会覆盖原型中的属性值
+
+		var person2 = new Person();
+
+		person2.name="allenyang1";
+
+		alert( person2.name );
+		alert( person1.name );
+
+		//delete操作符  可以删除实例中定义的属性，使其访问到原型中的属性，自动访问原型中的。
+		delete person2.name;
+		alert( person2.name );
+
+		//hasOwnProperty 判断实例的属性来自原型还是函数
+
+
+		//来自原型返回false
+		alert( person2.hasOwnProperty("name") );		// 参数必须写成字符串
+		
+		person1.name = "allenyang2";
+		//来自构造返回true
+		alert( person1.name );
+
+		alert( person1.hasOwnProperty("name") );
+
+		
+
+	};
+	</script>
+</head>
+<body>
+
+</body>
+</html>

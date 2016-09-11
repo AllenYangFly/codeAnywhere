@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+<head>
+	<title>字符串的方法</title>
+	<meta charset="UTF-8">
+	<script>
+	window.onload = function() {
+		//夏虫不可语冰，井蛙不可语海
+
+		// length属性
+		var str = "abcd";
+		alert( str.length );
+
+		// charAt()   返回字符串中的指定字符
+		alert( str.charAt(2) );
+
+		// charCodeAt()  返回字符串中的指定字符的编码
+		alert( str.charCodeAt(2) )
+
+		//字符串操作,
+		//不会改变字符串本身，只会返回操作的字符串
+		//concat  字符串拼接　
+		alert( str.concat("efg") );
+
+		//字符串截取
+		//传一个参数返回从该下标到最后，传两个参数代表截取
+		// slice,substr,substring
+		alert( str.slice(2) );
+
+		//查找字符方法indexof() and lastIndexOf()
+		//arguments［0］，要查找的的字符，返回字符在字符串中的下标
+		//arguments［1］，可选。查找字符的起始位置
+
+		//trim方法去除字符串中的起始和末尾位置的空字符，字符串中的空字符不会去除
+		var str1 = "Hello world ";
+		alert( "-"+str1+"-" );
+		alert( "-"+str1.trim()+"-" );
+
+		//字符串大小写转换,全部转换，如果其中有大写和小写，一律按照所要转换的字符考虑
+		//toLowerCase();toLocaleLowerCase();toUpperCase();toLocaleUppercase();
+		//一般使用locale方法更为稳妥一些
+		alert( str1.toLocaleUpperCase() );
+
+		//splite() 方法，返回
+ 		// 分割字符串，返回数组
+ 		alert( str1.split(" ") );
+
+ 		//在中国不是按照ascall编码表来比较的，是按照字母表，美国则不是。这是locale的特性决定的
+ 		//字符串比较,str1在字母表中在str2前面则返回－1，如果在str2的字母表的后面则返回1
+ 		var str2 = "Z";
+ 		alert( str1.localeCompare(str2) );
+
+ 		//String.fromeCharCode(),静态方法。将数字转化为所对应的编码表中字符
+ 		alert( String.fromCharCode(97,98,99) ) 
+
+	};
+	</script>
+</head>
+<body>
+
+</body>
+</html>

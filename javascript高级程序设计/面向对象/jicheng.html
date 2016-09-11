@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+	<script>
+		window.onload = function() {
+
+			//构造函数personSuper
+			function PersonSuper(){
+				this.prototype = "allen";
+			}
+
+			PersonSuper.prototype.showName = function() {
+				return this.prototype;
+			};
+ 
+			//构造函数personSub
+			function PersonSub(){
+				this.showName = function() {
+					return "yang";
+				};
+			}
+
+			//通过重写原型实现继承
+			PersonSub.prototype = new PersonSuper();
+
+			var p = new PersonSub();
+
+
+			//可以使用继承过来的方法
+			alert( p.showName() );
+
+			//p的constructor指向PersonSuper,因为PersonSub被重写了
+			alert( p.constructor );    
+
+			//继承链，首先搜索实例，其次搜索subperson.prototype，最后搜索superPerson.prototype  
+			
+			
+		};					  			
+	</script>
+</head>
+<body>
+</body>				 　 
+</html>

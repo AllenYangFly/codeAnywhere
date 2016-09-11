@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Global对象</title>
+	<meta charst="UTF-8">
+	<script>
+		window.onload = function() {
+
+			// Global对象实际上不存在，不属于其他对象的属性和方法都属于globel对象
+			// 格式化,替换空格，不会对其他特殊字符进行替换
+			// encodeURI()	
+			
+			alert(encodeURI("www.baidu.com "));
+
+			// 高度格式化，替换空格和其他特殊字符			
+			// encodeURIComponent()
+			
+			// 解格式化，将替换的字符转换回来，方法需一一对应
+			// decodeURI()
+			// decodeURIComponent()
+
+
+
+			// eval方法,将字符串，转化为js代码，但是具有一定的危险性，如果之间从用户端拿来字符串进行使用的话，可能会被代码注入
+			
+			eval("alert(1)");
+
+		};
+	</script>
+</head>
+<body>
+</body>
+</html>

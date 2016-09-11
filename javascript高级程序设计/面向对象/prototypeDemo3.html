@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+	<script>
+	window.onload = function() {
+		// 原型具有动态性
+		function Person( name ) {
+			this.name = name;
+		}
+
+		//创建对象
+		Person.prototype.age = 21;
+		var  person = new Person("allen");
+
+		//没有age属性
+		// alert( person.age );
+
+		//动态的在原型上添加上age属性
+		//Person.prototype.age = 20;
+
+		//具有的age属性,正常输出
+		//alert( person.age);
+
+		//但是重写构造函数添加属性后，就不能实现动态性了
+		Person.prototype = {
+			constructor : "Person",
+			age : 20
+		};
+
+		//undefined,重写后，原来创建的实力原型依然指向最初的原型
+		//false  说明person构造函数的prototype与原本创建的prototype已经不一样了
+
+		var person2 = new Person("Yang"); 　
+		alert( Person.prototype.constructor == Person );
+
+
+		function SpecialArray() {
+			var value = new Array();
+
+			value.push.apply(value,arguments);
+			
+			value.toPipedString = function() {
+				return this.join("|");
+			};
+
+			return value;
+		}
+
+		var arr = new SpecialArray("red","blue");
+		
+		alert(arr.toPipedString());
+	};
+	</script>
+</head>
+<body>
+
+</body>
+</html>

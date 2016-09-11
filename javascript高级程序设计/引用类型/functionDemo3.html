@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+	<script>
+		
+		//函数的属性和方法
+		// 属性 length：每个函数都包含length属性，代表函数希望接受的命名参数的个数
+		function addSum( a,b) {}
+		function addSum2() {}
+
+		alert(addSum2.length);
+		alert(addSum.length);
+
+		// prototype属性是ecmascript的核心
+
+		//call() , apply() 方 法 设置函数体内this对象的值
+		// apply第二个参数为数组、call第第二个及之后的参数都需要具体的列出来
+		function sum( num1,num2) {
+			return num1 + num2;
+		}
+
+		function callSum1() {
+			return sum.apply( this, arguments );
+		}
+
+		function callSum2(num1,num2){
+			return sum.apply( this, [ num1,num2 ]);
+		}
+
+		alert( callSum1(10,10) );
+		alert( callSum2(10,10) );
+
+		function sumAll( ) {
+			return this.sum;
+		}
+
+		var o = { sum:"10" };
+		//改变执行环境
+		sumAll.call(o);
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script>
+	window.onload = function() {
+
+		function person1() {
+			this.num = "1";
+		}
+
+		function person2() {
+
+			//利用call方法实现继承
+			person1.call( this );
+		}
+
+		var p = new person2();
+
+		alert( p.num );
+		p.num = 2;
+
+		//利用call方法实现的继承不会出现修改原型的情况
+		var p2 = new person2();
+		alert( p2.num );
+
+
+	};
+	</script>
+</head>
+<body>
+
+</body>
+</html>

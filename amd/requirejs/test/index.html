@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<!-- <script data-main="main" src="../require.js"></script> -->
+	<!-- 
+
+	require 优点：
+		
+		1，不会阻塞页面渲染
+		2，按照程序调用js的顺序加载
+		
+	三个变量：define，require，requirejs
+
+	define   从名字就可以看出这个api是用来定义一个模块
+	require  加载依赖模块，并执行加载完后的回调函数
+	
+	require(arr,functioncallback () {})
+	
+	加载网络资源,使用require.config定义一个简短的名字
+	require.config({
+		path : {
+			"JQuery" : ["http://libs.baidu.com/jquery/2.0.3/jquery"]
+		}
+	})
+	require( ["Jquery","a.js"],function() {alert("load finished");})
+	
+
+	加载非AMD规范的模块
+	require.config({
+    shim: {
+        	"underscore" : {
+            	exports : "_";
+        	}
+    	}
+	})
+	
+	require(["underscore"], function(_){
+  	  _.each([1,2,3], alert);
+	})
+
+
+	非amd依赖性插件
+	require.config({
+	    shim: {
+	        "underscore" : {
+	            exports : "_";
+	        },
+	        "jquery.form" : {
+	            deps : ["jquery"]
+	        }
+	    }
+	})
+	
+	require.config({
+	    shim: {
+	        "underscore" : {
+	            exports : "_";
+	        },
+	        "jquery.form" : ["jquery"]
+	    }
+	}
+
+	require.config(["jquery", "jquery.form"], function($){
+	    $(function(){
+	        $("#form").ajaxSubmit({...});
+	    })
+	})
+
+
+
+	-->
+	<script   defer src="../require.js" data-main="main.js"></script>
+	
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta chatset="TUF-8">
+    <title></title>
+    <script type="text/javascript">
+        window.onload = function() {
+            // loadScript("script.js");
+            // loadStyles("style.css");
+            var oHeader = document.getElementsByTagName("header")[0];
+            var aDiv = document.getElementsByTagName("div");
+
+            // oHeader.style.removeProperty("width");
+            // alert(oHeader.style.length);
+            // alert(oHeader.setAttribute("width",100));
+           
+           // alert(getStyle(oHeader,"width"));
+           // alert(oHeader.getAttribute("width"));
+            
+            // alert(document.styleSheets.length);
+
+            var oList = document.createElement("ul");
+
+            var str = "<li>top</li>";
+            for(var i=0; i<aDiv.length; i++) {
+                str += "<li>"+(i+1)+"</li>"
+            }
+
+            oList.innerHTML = str;
+            oList.style.position = "fixed";
+            oList.style.color = "#fff"
+            oList.style.top = "0";
+            
+            // window.onload = function() {};
+
+            
+            document.body.appendChild(oList);
+
+            var aLi = oList.getElementsByTagName("li");
+
+            for(let i=1; i<aLi.length; i++) {
+                aLi[i].onclick = function() {
+                    aDiv[i-1].scrollIntoView(true);
+                };
+            }
+
+            document.body.onclick = function() {
+                alert(event.type);
+            };
+        };
+
+        function getStyle( obj, attr) {
+            return obj.currentStyle?obj.currentStyle:window.getComputedStyle( obj)[attr];
+        }
+        // 动态加载JS和样式
+        function loadScript (url) {
+            var oScript = document.createElement("script");
+            oScript.type = "text/javascript";
+            oScript.src = url;
+            document.body.appendChild(oScript);
+        }
+
+        function loadStyles (url) {
+            var oStyle = document.createElement("link");
+            oStyle.type= "text/css";
+            oStyle.rel = "stylesheet";
+            oStyle.href = url;
+            var head = document.getElementsByTagName("head")[0];
+            head.appendChild(oStyle);
+        }
+
+    </script>
+    <link rel="stylesheet" href="" type="text/css">
+    <style type="text/css">
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    ul {
+        list-style: none;
+        padding : 0;
+    }
+    li {
+        width: 40px;
+        float: left;
+        text-align: center;
+        cursor: pointer;
+    }
+    header,div{
+        height: 100%;
+        transition: all ease-in 2s;
+    }
+    header {
+        width: 200px !important;
+    }
+    header {
+        background: #4C9E84;
+    }
+    div:nth-of-type(1) {
+        background: #445F9E;
+    }
+    div:nth-of-type(2) {
+        background: #5D2A9E;
+    }
+    div:nth-of-type(3) {
+        background: #9E4059;
+    }
+    div:nth-of-type(4) {
+        background: #189E96;
+    }
+    </style>
+</head>
+<body>
+    <header style="width:100px;">
+    </header>
+    <div id="box1">
+    </div>
+    <div id="box2">
+    </div>
+    <div id="box3">
+    </div>
+    <div id="box4">
+    </div>
+</body>
+</html>

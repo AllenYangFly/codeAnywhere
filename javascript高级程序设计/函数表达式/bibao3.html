@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+	<script>
+	window.onload = function() {
+		var name = "allen";
+
+		var name;
+		alert( name );
+
+		//普通语句
+		for(var i=0; i<10; i++){
+			console.log(i);
+		}
+
+		//使用块状作用域封闭的语句
+		(function() {
+			for( var j=0; j<10; j++ ){
+				console.log(j);
+			}
+		})();
+
+
+		//普通语句可以访问i
+		alert(i);
+
+		//闭包语句，访问报错
+		//有效的防止全局变量的污染
+		//alert(j);
+
+		
+
+	};
+	</script>
+</head>
+<body>
+
+</body>
+</html>

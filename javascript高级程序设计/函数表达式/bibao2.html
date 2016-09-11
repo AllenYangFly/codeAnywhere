@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+	<script>
+
+	function() {
+		alert(i);
+	} (i);	
+
+	function createFunctions() {
+
+		var result = new Array();
+
+		for( var i=0; i<10; i++ ) {
+			result[i] = function() {
+				return i;
+			};
+		}
+
+
+		for( var i=0; i<10; i++ ) {
+			result[i] = (function () {
+				return function() {
+					return num;
+				};
+			})(i);
+		}
+		return result;
+	}
+
+	alert( createFunctions() );
+	</script>
+</head>
+<body>
+
+</body>
+</html>

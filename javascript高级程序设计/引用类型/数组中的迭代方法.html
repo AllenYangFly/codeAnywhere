@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script>
+	window.onload = function() {
+		var arr = Array();
+		  for(var i = 0;i<10;i++){
+				arr.push(i);
+			}
+
+			//item数组项的值，index代表数组项的下标，array代表数组对象本身
+
+			//every  对数组对象每一项都执行函数，如果所有项的返回值都为true，则返回值为true
+			//some  对数组的每一项执行函数，如果有一项的返回值为true，则返回值为true
+
+			// foreach  相当于for循环，对数组的每一项进行操作，没有返回值
+
+			//filter 对数组的每一项调用函数，返回值为真的项组成一个数组返回
+			var filterArray = arr.filter(function(item,index,array) {
+				return (item>2);
+			});
+
+			//map 对数组的每一项调用函数，返回值组成一个数组返回
+			alert(filterArray);
+	};
+	</script>
+</head>
+<body>
+
+</body>
+</html>

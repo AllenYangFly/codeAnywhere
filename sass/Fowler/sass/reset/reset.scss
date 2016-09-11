@@ -1,0 +1,32 @@
+@mixin resetMargin {
+	margin: 0;
+}
+@mixin resetPadding {
+	padding: 0;
+}
+@mixin clear {
+	@at-root  &:after{
+		content: "";
+		display: block;
+		width: 0;
+		clear: both;
+		visibility: hidden;
+	}
+}
+
+
+body,h1,h2,h3,h4,h5,p {
+	@include resetMargin;
+	@include resetPadding;
+}
+ul {
+	@include resetMargin;
+	@include resetPadding;
+	list-style: none;
+}
+
+body {
+	font-family: "Open Sans","Microsoft YaHei","Hiragino Sans GB","Hiragino Sans GB W3","微软雅黑","Helvetica Neue",Arial,sans-serif;
+	line-height: 1.6em;
+}
+
