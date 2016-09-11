@@ -53,8 +53,21 @@ console.log(arrOf);
 
 
 
+// 4.find()和findIndex()根据某种规则返回数组项
+
+
+// 5.fill() 填充
+
+
+// 6.数组遍历entries()，keys()和values()
+
+
+// 7.includes() 是否包含
 
 
 
+
+// 8.数组的空位明确未undefined
+// es6默认所有的空位都为undefined，不可忽略。但是在ES5中，数组方法遍历的时候，会忽略掉空位。
 
 
