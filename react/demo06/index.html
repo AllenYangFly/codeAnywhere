@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../build/react.js"></script>
+    <script type="text/javascript" src="../build/react-dom.js"></script>
+    <script type="text/javascript" src="../build/browser.min.js"></script> 
+</head>
+<body>
+    <div id="box"></div>
+    <script type="text/babel"> 
+
+        
+    var Mytitle = React.createClass({
+        propTypes: {
+            title: React.PropTypes.string.isRequired
+        },
+        getDefaultProps: function() {
+            return {
+                title: "allen"
+            };
+        },
+        render: function() {
+            return <h1>{this.props.title}</h1>;
+        }
+    });
+
+    ReactDOM.render(
+        <Mytitle/>,
+        document.getElementById('box')
+    );
+
+    </script>
+</body>
+</html>
