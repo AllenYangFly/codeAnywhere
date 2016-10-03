@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../build/react.js"></script>
+    <script type="text/javascript" src="../build/react-dom.js"></script>
+    <script type="text/javascript" src="../build/browser.min.js"></script> 
+</head>
+<body>
+    <ul>
+        <li>Mounting：已插入真实 DOM</li>
+        <li>Updating：正在被重新渲染</li>
+        <li>Unmounting：已移出真实 DOM</li>
+    </ul>
+    <ul>
+        <li>componentWillMount()</li>
+        <li>componentDidMount()</li>
+        <li>componentWillUpdate(object nextProps, object nextState)</li>
+        <li>componentDidUpdate(object prevProps, object prevState)</li>
+        <li>componentWillUnmount()</li>
+    </ul>
+    
+    <ul>
+        <li>componentWillReceiveProps(object nextProps)：已加载组件收到新的参数时调用</li>
+        <li>shouldComponentUpdate(object nextProps, object nextState)：组件判断是否重新渲染时调用</li>
+    </ul>
+    <div id="example"></div>
+    <script type="text/babel">
+        var Hello = React.createClass({
+            getInitialState: function() {
+                return {opacity: 1.0};
+            },
+            componentDidMount: function() {
+                this.timer = setInterval(function() {
+                    var opacity = this.state.opacity;
+                    opacity -= .05;
+                    if ( opacity < .1 ){
+                        opacity = 1.0;
+                    }
+                    this.setState({
+                        opacity: opacity
+                    });
+                }.bind(this),200);
+            },
+            render: function() {
+                return (
+                    <div style={{opacity: this.state.opacity,color: 'red'}}>
+                       
+                        Hello {this.props.name}{this.state.opacity}
+                        <Footer />
+                    </div>
+                );
+            }
+        });
+        var Footer = React.createClass({
+            render: function() {
+                return (<p>我是footer</p>);
+            }
+        });
+        ReactDOM.render(
+            <Hello name="world"/>,
+            document.getElementById("example")    
+        );
+    </script>
+</body>
+</html>
