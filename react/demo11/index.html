@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <title></title>
     <script type="text/javascript" src="../build/react.js"></script>
     <script type="text/javascript" src="../build/react-dom.js"></script>
     <script type="text/javascript" src="../build/browser.min.js"></script> 
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 </head>
 <body>
     <p> 通过Ajax返回值改变state属性，重新触发render渲染</p>
-    <script type="text/babel" src="index.js">
+    <script type="text/babel">
         var UserGist = React.createClass({
           getInitialState: function() {
             return {
@@ -16,7 +18,6 @@
               lastGistUrl: ''
             };
           },
-
           componentDidMount: function() {
             $.get(this.props.source, function(result) {
               var lastGist = result[0];
@@ -28,7 +29,6 @@
               }
             }.bind(this));
           },
-            
           render: function() {
             return (
               <div>
@@ -39,7 +39,7 @@
           }
         });
         
-
+        
         ReactDOM.render(
           <UserGist source="https://api.github.com/users/octocat/gists" />,
           document.body

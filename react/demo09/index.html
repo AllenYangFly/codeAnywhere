@@ -20,8 +20,13 @@
         },
         render: function() {
           var value = this.state.value;
+          var style = {
+            backgroundColor: "#64BFBB",
+            fontSize: 20,
+            opacity: .8
+          };
           return (
-            <div>
+            <div style={style}>
               <input type="text" value={value} onChange={this.handleChange} />
               <p>{value}</p>
             </div>

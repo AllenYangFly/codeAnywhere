@@ -8,6 +8,8 @@
     <script type="text/javascript" src="../build/browser.min.js"></script> 
 </head>
 <body>
+    <p>父组件调用子组件，在子组件render标签加上ref属性，父组建通过refs.childName.method()调用</p>
+    <p>子组件调用父组件,通过render子组件时添加到子组件属性值，子组件通过props属性获取</p>
     <ul>
         <li>Mounting：已插入真实 DOM</li>
         <li>Updating：正在被重新渲染</li>
@@ -26,42 +28,8 @@
         <li>shouldComponentUpdate(object nextProps, object nextState)：组件判断是否重新渲染时调用</li>
     </ul>
     <div id="example"></div>
-    <script type="text/babel">
-        var Hello = React.createClass({
-            getInitialState: function() {
-                return {opacity: 1.0};
-            },
-            componentDidMount: function() {
-                this.timer = setInterval(function() {
-                    var opacity = this.state.opacity;
-                    opacity -= .05;
-                    if ( opacity < .1 ){
-                        opacity = 1.0;
-                    }
-                    this.setState({
-                        opacity: opacity
-                    });
-                }.bind(this),200);
-            },
-            render: function() {
-                return (
-                    <div style={{opacity: this.state.opacity,color: 'red'}}>
-                       
-                        Hello {this.props.name}{this.state.opacity}
-                        <Footer />
-                    </div>
-                );
-            }
-        });
-        var Footer = React.createClass({
-            render: function() {
-                return (<p>我是footer</p>);
-            }
-        });
-        ReactDOM.render(
-            <Hello name="world"/>,
-            document.getElementById("example")    
-        );
+    <script type="text/babel" src="./src/index.jsx">
+        
     </script>
 </body>
 </html>
