@@ -1,5 +1,5 @@
-var config = require("./config.json");
-var style = require("./Greeter.css");
+const config = require("./config.json");
+const style = require("./Greeter.css");
 
 module.exports = function() {
   var greet = document.createElement('div');
