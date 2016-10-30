@@ -1,0 +1,15 @@
+{
+  "name": "myapp",
+  "version": "1.0.0",
+  "description": "a test app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "allen",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.14.0",
+    "mongoskin": "^2.1.0"
+  }
+}

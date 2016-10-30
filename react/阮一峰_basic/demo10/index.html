@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../build/react.js"></script>
+    <script type="text/javascript" src="../build/react-dom.js"></script>
+    <script type="text/javascript" src="../build/browser.min.js"></script> 
+</head>
+<body>
+    <p>父组件调用子组件，在子组件render标签加上ref属性，父组建通过refs.childName.method()调用</p>
+    <p>子组件调用父组件,通过render子组件时添加到子组件属性值，子组件通过props属性获取</p>
+    <ul>
+        <li>Mounting：已插入真实 DOM</li>
+        <li>Updating：正在被重新渲染</li>
+        <li>Unmounting：已移出真实 DOM</li>
+    </ul>
+    <ul>
+        <li>componentWillMount()</li>
+        <li>componentDidMount()</li>
+        <li>componentWillUpdate(object nextProps, object nextState)</li>
+        <li>componentDidUpdate(object prevProps, object prevState)</li>
+        <li>componentWillUnmount()</li>
+    </ul>
+    
+    <ul>
+        <li>componentWillReceiveProps(object nextProps)：已加载组件收到新的参数时调用</li>
+        <li>shouldComponentUpdate(object nextProps, object nextState)：组件判断是否重新渲染时调用</li>
+    </ul>
+    <div id="example"></div>
+    <script type="text/babel" src="./src/index.jsx">
+        
+    </script>
+</body>
+</html>

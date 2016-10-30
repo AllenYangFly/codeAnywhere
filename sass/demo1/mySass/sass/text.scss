@@ -4,19 +4,10 @@
 	.top{
 		color:red;
 	}
-	.content{
-		color:blue;
-	}
 }
 
 
-
-
 // 导入另一个scss，@import位置随意，会自动编译css，但是如果导入成css泽不会做任何操作，原样输出css
-@import "test2.scss";
-
-
-
 
 // 注释有两种，一种双斜线，不会被解析成css注释
 /*
@@ -28,8 +19,6 @@
 
 // 变量，以$开头，而且后面紧跟变量名，
 $bgColor: #ccc;
-
-
 
 
 // 如果后面跟上!default,则表示为默认值，如果要覆盖，则在默认变量之前重新声明,在组件化开发很有用
@@ -72,16 +61,16 @@ $headings: ( h1:2em, h2:1.5em, h3:1.2em );
 
 
 
-
 // 作用域  !global关键字
 // 全局变量
 $h1Color: red;
+
 h1{
 	// 局部变量
 	$h1Color: #ccc;
 	// 加上global变量变为全局变量
 	$h1Color: #ccc !global;
-	color: $h1Color;
+	color: $h1Color;	
 }
 body{
 	background: $h1Color;
@@ -99,6 +88,9 @@ h1{
 		color: blue;
 	}
 }
+
+
+
 // 属性嵌套   不推荐使用
 h1{
 	border: {
@@ -144,6 +136,8 @@ h1{
 		}
 	}
 }
+
+
 // 结果是 
 // .parent {
 // 	color: red;

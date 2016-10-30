@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../build/react.js"></script>
+    <script type="text/javascript" src="../build/react-dom.js"></script>
+    <script type="text/javascript" src="../build/browser.min.js"></script> 
+</head>
+<body>
+    <p>this.props是一旦定义就不会再改变的属性，this.state则是一直在改变的属性</p>
+    <div id="box"></div>
+    <script type="text/babel">
+      var Input = React.createClass({
+        getInitialState: function() {
+          return {value: "Hello!~"};
+        },
+        handleChange: function(event) {
+          this.setState({value: event.target.value});
+        },
+        render: function() {
+          var value = this.state.value;
+          var style = {
+            backgroundColor: "#64BFBB",
+            fontSize: 20,
+            opacity: .8
+          };
+          return (
+            <div style={style}>
+              <input type="text" value={value} onChange={this.handleChange} />
+              <p>{value}</p>
+            </div>
+          );
+        }
+      });
+
+      ReactDOM.render(<Input/>,document.getElementById("box"));
+    </script>
+</body>
+</html>

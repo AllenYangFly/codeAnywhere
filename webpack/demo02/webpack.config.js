@@ -32,7 +32,7 @@ module.exports = {
     },
     devServer: {
         inline: true,
-        port: 8008,
+        port: 8007,
     },
     plugins: []
 };

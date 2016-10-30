@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript" src="../build/react.js"></script>
+    <script type="text/javascript" src="../build/react-dom.js"></script>
+    <script type="text/javascript" src="../build/browser.min.js"></script>
+</head>
+<body>
+  
+    <script type="text/babel">
+       var NodeList = React.createClass({
+        getDefaultProps: function(){
+           return {
+            title: 'Hello World'
+          };
+        },
+        PropTypes: {
+          title: React.PropTypes.string.isRequired
+        },
+        render: function() {
+          return (
+            <ol>
+              {
+                React.Children.map(this.props.children,function(child) {
+                  return <li>{child}</li>;
+                })
+              }
+            </ol>
+          );
+        }
+       });
+        
+      ReactDOM.render(<NodeList type={'allen'}><span>allen</span><span>yang</span></NodeList>,document.body);
+
+        
+    </script>
+</body>
+</html>

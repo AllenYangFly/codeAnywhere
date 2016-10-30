@@ -5,13 +5,6 @@
 .box .top {
   color: red;
 }
-.box .content {
-  color: blue;
-}
-
-body {
-  background: #c0c0c0;
-}
 
 /*
  * 会被解析成css注释
@@ -116,6 +109,7 @@ h1, h2 {
   margin: 0 auto;
 }
 
+p
 .box {
   position: absolute;
 }
