@@ -1,7 +1,7 @@
 module.exports = {
 
     devtool: 'eval-source-map',
-    entry: `${__dirname}/app/components/app.js`,
+    entry: `${__dirname}/app/index.js`,
     output: {
         path: `${__dirname}/app/`,
         filename: "bundle.js" 
@@ -25,7 +25,7 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: 'babel',
                 query: {
-                  presets: ['es2015','react']
+                  presets: ['es2015', 'react']
                 }
             }
         ]

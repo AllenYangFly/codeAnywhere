@@ -1,4 +1,5 @@
 const React = require('react');
+import {Link, IndexLink} from "react-router";
 
 class Home extends React.Component{
     constructor (...args) {
@@ -10,9 +11,10 @@ class Home extends React.Component{
 
     render() {
         return (
-            <div className="Publisher">
-                Home
+            <div>
+                我是Home
             </div>
+
         );
     }
 }

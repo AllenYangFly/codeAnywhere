@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <style>
+        #grid {
+            display: flex;
+            height: 100px;
+            flex-wrap: wrap;
+
+        }
+        .grid-cell {
+            border: 1px solid #ccc;
+        }
+        #grid .grid-cell {
+            background: red;
+            
+        }
+        .u-full {
+            flex: 0 0 100%;
+        }
+        .u-lof2 {
+            flex: 0 0 40%;
+        }
+        .u-lof3 {
+            flex: 0 0 33.3333%;
+        }
+        .u-lof4 {
+            flex: 0 0 25%;
+        }
+    </style>
+</head>
+<body>
+    <div id="grid">
+        <div class="grid-cell u-full"></div>
+        <div class="grid-cell u-lof2"></div>
+        <div class="grid-cell u-lof2"></div>
+    </div>
+</body> 
+</html>

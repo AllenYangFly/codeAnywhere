@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <style class="wrap">
+    .wrap {
+        margin-top: 100px;
+        width: 500px;
+        height: 500px;
+        background: #81BCF1;
+    }
+    .wrap .box {
+        height: 200px;
+        width: 200px;
+        background: #5864F1;
+        margin: 50px;
+    }
+    .wrap .box .aside {
+        width: 100px;
+        height: 100px;
+        background: #F0A486;
+        float: left;
+        opacity: .5;
+    }
+    .wrap .box .content {
+        height: 100px;
+        background: #3B1626;
+        overflow:hidden;
+    }
+    </style>
+    <!--  怎么生成BFC?  -->
+    <!--
+        1. 根元素
+        2. float不为none 
+        3. position为absolute或fixed
+        4. display为inline-block、table-cell、flex、inline-flex
+        5. overflow不为visible
+    -->
+
+    <!--  BFC的效果  -->
+    <!--
+        1. 内部的Box会在内部竖直的一个接一个放置,外部的float不会影响内部元素
+        2. Box垂直距离由margin决定，属于同一个BFC的两个Box的margin会相互重叠   (触发不同BFC, 防止margin重叠)
+        3. 每个元素的margin box左边与包含块的左边相接触,即使存在浮动
+        4. BFC区域不会与float box相重叠     (两栏布局)
+        5. BFC内的子元素不会与外部元素相互影响
+        6. BFC内的浮动元素，也会参与高度计算  (清理浮动)
+    -->
+</head>
+<body>
+    <div class="wrap">
+        <div class="box">
+            <div class="aside">
+                
+            </div>
+            <div class="content">
+
+            </div>
+        </div>
+         <div class="box">
+        </div>
+    </div>
+</body>
+</html>

@@ -1,10 +1,13 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
-const Page1 = require('./pages1/pages1.jsx');
-const Page2 = require ('./pages2/pages2.jsx');
-const Home =require('./home/home.jsx');
+const About = require('./components/about/pages1.jsx');
+const Repos = require ('./components/repos/pages2.jsx');
+const Home =require('./components/home/home.jsx');
+const User =require('./components/user/user.jsx');
+const App = require("./components/app.jsx");
 
 const { Router, Route, hashHistory, IndexRoute} = require('react-router');
+
 // Router就是一个组件
 
 // history 属性值
@@ -18,19 +21,18 @@ const { Router, Route, hashHistory, IndexRoute} = require('react-router');
 // Link       点击跳转路由
 // IndexLink 点击根目录默认跳转路由
 
-
 // 几个事件
 // onLeave
 // onEnter 
 
-ReactDOM.render((
+ReactDOM.render(
     <Router history={hashHistory}>
-        <Route path="/" component="">
-            <IndexRoute component={Home}/>
-            <Route path="/page1" component={Page1}/ >
-            <Route path="/page2" component={Page2}/>
-         </Route>
-    </Router>), 
+      <Route path="/" component={App}>
+        <IndexRoute component={Home} />
+        <Route path="/repos/:name" component={Repos} />
+        <Route path="/about" component={About} />
+        <Route path="/user" component={User} />
+      </Route>
+    </Router>,
     document.getElementById('wrap')
 );
-

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+    
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    .left {
+        background: #ddd;
+    }
+    .right {
+        background: #333;
+    }
+    .clear::after {
+        content: '';
+        height: 0;
+        display: block;
+        clear: both;
+    }
+    .layout {
+        margin-bottom: 50px;
+    }
+    /*
+     * 单侧固定布局
+     */
+    .layout-1 {
+        padding-left: 210px;
+    }
+    .layout-1 .left {
+        width: 200px;
+        float: left;
+        margin-left: -210px;
+    }
+    .layout-1 .center {
+        width: 100%;
+        height: 100px;
+        background: #ccc;
+    }
+    
+    /*
+     * 两侧固定布局
+     */
+    .layout-2 {
+        padding: 0 210px;
+    }
+    .layout-2 .left {
+        margin-left: -210px;
+        float: left;
+        width: 200px;    
+    }
+    .layout-2 .right {
+        margin-right: -210px;
+        width: 200px;
+        float: right;
+    }
+    .layout-2 .center {
+        width: 100%;
+        height: 100px;
+        
+        background: #ccc;
+    }
+    
+    /*
+     * 圣杯布局与双飞翼布局
+     * 圣杯布局在06年提出，双飞翼布局起源于阿里UED
+     * 圣杯布局和双飞翼布局重要解决:1. 两侧固定宽度，中间自适应 2.中间部分放在前面，优先渲染，提高用户体验
+     */
+
+
+    /*
+     * 圣杯布局
+     */
+
+    .layout-3-header {
+        height: 100px;
+        background: #85B7F0;
+    }
+    .layout-3-footer {
+        height: 100px;
+        background: #3DDDF0;
+        clear: both;
+    }
+    .layout-3 {
+        padding-left: 210px;
+        padding-right: 160px;
+    }
+    .layout-3 .column {
+        float: left;
+        height: 200px;
+        position: relative;
+    }
+    .layout-3 .center {
+        width: 100%;
+        background: #ccc;
+        
+    } 
+    .layout-3 .left {
+        width: 200px;
+        background: #6B9FF0;
+        margin-left: -100%;
+        right: 210px;
+    }
+    .layout-3 .right {
+        width: 150px;
+        background: #894DF0;
+        margin-left: -150px;
+        right: -160px;
+    }
+
+    /*
+     * 双飞翼布局
+     */
+
+    .layout-4 {
+        width: 100%;
+    }
+    .layout-4 .center {
+        width: 100%;
+        
+    }
+    .layout-4 .column {
+        float: left;
+        height: 200px;
+    }
+    .layout-4 .left {
+        width: 200px;
+        margin-left: -100%;
+    }
+    .layout-4 .right {
+        width: 150px;
+        margin-left: -150px;
+    }
+    .layout-4 .center-content {
+        margin-left: 210px;
+        margin-right: 160px;
+        background: #aaa;
+        height: 200px;
+    }
+    </style>
+</head>
+<body>
+    <div class="layout-1 layout"> 
+        <div class="left">left</div>
+        <div class="center">center</div>
+    </div>
+    <div class="layout-2 layout"> 
+        <div class="left">left</div>
+        <div class="right">right</div>
+        <div class="center">center</div>
+    </div>
+    <!--双飞翼布局-->
+    <header class="layout-3-header"></header>
+    <div class="layout-3"> 
+        <div class="center column">center</div>
+        <div class="left column">left</div>
+        <div class="right column">right</div>
+    </div>
+    <footer class="layout-3-footer">
+    </footer>
+    <div class="layout-4"> 
+        <div class="center column">
+            <div class="center-content">center</div>
+        </div>
+        <div class="left column">left</div>
+        <div class="right column">right</div>
+    </div>
+</body>
+</html>

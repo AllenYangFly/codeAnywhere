@@ -1,7 +1,6 @@
 const React = require('react');
 
-
-class Page1 extends React.Component{
+class Page2 extends React.Component{
     constructor (...args) {
         super(...args);
         this.state = {
@@ -12,10 +11,10 @@ class Page1 extends React.Component{
     render() {
         return (
             <div className="Publisher">
-                pages1
+                我是Repos
             </div>
         );
     }
 }
 
-module.exports = Page1;
+module.exports = Page2;
