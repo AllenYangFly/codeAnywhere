@@ -111,7 +111,7 @@ html
 #### 缺点
  必须知道子元素的宽高
 
-### margin,position配合2
+### margin,position配合
 
     .box {
         

@@ -20,8 +20,7 @@ JavaScript:数据类型，运行，对象，Function，继承，闭包，作用�
 * DOM结构 —— 两个节点之间存在哪些关系以及如何在节点之间任意移动；
 * DOM操作 —— 如何添加，移除，移动，复制，创建和查找节点等；
 * 事件 —— 如何使用事件，以及IE和标准DOM事件模型之间存在的差别；
-* XMLHttpRequset —— 这是什么，怎么完整地执行一次GET请求，怎么检测错误；
-* 严格模式与混杂模式 —— 如何处理这两种模式，区分它们有何意义；
+* XMLHttpRequset —— 这是什么，怎么完整地执行一次GET请求，怎么检测错误
 * 盒模型 —— 外边距，内边距和边框之间的关系，以及IE8以下版本的浏览器中的盒模型；
 * 块级元素与行内元素 —— 怎么使用CSS控制它们，以及如何合理使用它们；
 * 浮动元素 —— 怎么使用它们，它们有什么问题以及怎么解决这些问题；
@@ -29,49 +28,7 @@ JavaScript:数据类型，运行，对象，Function，继承，闭包，作用�
 * JSON —— 作用，用途，设计结构；
 
 # HTML
-### Doctype作用？标准模式与兼容模式各有什么区别？
 
-1.<!DOCTYPE> 声明位于HTML文档中的第一行，处于<html>标签之前；告知浏览器的解析器用什么标准解析这个文档；DOCYTPE不存在或格式不正确会导致文档以兼容模式呈现;
-
-2.标准模式的排版和JS运作模式都是以该浏览器支持的最高标准允许；在兼容模式中，页面以宽松的向后兼容模式显示，模拟老式浏览器的行为放置站点无法工作；
-
-### HTML5为什么是需要写<!DOCTYPE　HTML>?
-
-html5不基于SGML，因此不需要对DTD进行引用，但需要doctype来规范浏览器的行为； 而HTML4.01基于SGML，所以需要对DTD进行引用，才能告知浏览器文档所使用的文档类型；
-
-### 行内元素有哪些，块级元素有哪些，空(void)元素有哪些?
-
-css规范规定，每个元素都有display属性，确定该元素的类型，每个元素都有默认的display的值；
-
-行内元素：a b span img input select strong;
-
-块级元素：div ul ol li dl dt dd h1~h6 p;
-
-空元素:<br> <hr> <img> <input> <link> <meta>
-
-鲜为人知的空元素：<area> <base> <col> <command> <embed> <keygen> <param> <source> <track> <wbr>
-
-
-### 页面导入样式时，使用link和@import有什么区别
-
-1.link属于XHTML标签除了加载css外还能用于定义RSS，定义rel链接属性等作用；而@import 是css提供只能用于加载CSS；
-
-2.页面被加载的时，link会同时被加载，而@import引用的css会等到页面被加载完再加载；
-
-3.import是css2.1提出的，只在ie5以上才能被识别，而link是XHTML标签，无兼容问题；
-
-为何不推荐使用@import:
-1. link href="a.css" @import a.css 
-
-IE下link和@import混用，将会先加载link后加载@import
-
-2. link href="a.css" a.css内部import'b.css'
-
-将会先加载a.css，解析后加载b.css
-
-3. link会阻断@import加载，只能先加载完link，才会加载@import的css
-
-4. 多个@import，加载的先后顺序可能会发生改变
 
 ### 介绍一下你对浏览器内核引撃的理解?
 
@@ -84,13 +41,6 @@ JS引撃：解析和执行javascript来实现网页的动态效果；
 最开始渲染引撃和JS引撃并没有区分的很明确，后来JS引撃越来越独立，内核就倾向于只只渲染引撃；
 
 
-### 常见浏览器内核有哪些？
-
-Trident内核：IE,MaxThon,TT,The,World,360,等；
-
-Gecko内核：Netscape6以及以上版本，FF，MozillaSuite等；
-
-Webkit内核：Safari,Chrome,Opera等
 
 ### H5的特性
 
@@ -127,7 +77,7 @@ IE8~IE6支持通过document,createElement方法产生的标签，可用利用这
     <![endif]-->
 如何区分H5
 
-DOCTYPE声明\新增的结构元素\功能元素；
+新增的结构元素\功能元素；
 
 
 ### 简述一下你对HTML语义化的理解
@@ -140,24 +90,7 @@ DOCTYPE声明\新增的结构元素\功能元素；
 
 使阅读源代码的人对网站更容易将网站分块，便于阅读维护理解；
 
-### H5的离线存储怎么使用，工作原理的解释？
 
-在用户没有与网络连接使，可以正常访问站点或应用，在用户连接网络的时候，更新用户机器上的缓存文件
-
-原理：h5的离线存储是基于一个新建的.appcache文件的缓存机制，通过这个文件上的解析清单离线存储资源，这些资源就会像cookie一样被存储了下来，之后当网络处在离线状态下时，浏览器会通过被离线存储的数据进行页面展示；
-
-如何使用： 1.页面头部像下面一样加入一个manifest的属性； 2.在cache.manifest文件的编写离线存储的资源；
-
-    CACHE　MANIFEST
-        #v0.11
-        CACHE:
-        js/app.js
-        css/style.css
-        NETWORK:
-        resourse/logo.png
-        FALLBACK:
-        //offline.html
-3.在离线状态时，操作window.applicationCache进行需求实现；
 
 ### 浏览器是怎么对h5的离线储存资源进行管理和加载的
 
@@ -298,46 +231,9 @@ p : nth-child(2) 属于其父元素的第二个子元素的每个p元素；
 :disabled 控制表单控件的禁用状态；
 :checked 单选或复选框被选中；
 
-### 如何居中div，如何居中一个浮动元素，如何让绝对定位的div居中
 
--给div设置一个宽度，然后添加margin:0 auto属性
 
-div{
-    width:200px;
-    margin:0 auto;
-}
--居中一个浮动元素
 
-确定容器的宽高；
-    
-这只层的外边距；
-    
-    .div{
-        width:500px;height:300px;
-        margin:-150px 0 0 -250px;
-        position:relative;
-        left:50%;
-        top:50%;
-    }
--让绝对定位的div居中
-
-    position:absolute;
-    width:200px;
-    background:none;
-    marin:0 auto;
-    top:0;
-    bottom:0;
-    left:0;
-    right:0;
-
-### display有哪些值，说明他们的作用；
-
-block 块级类型元素一样显示；
-none 缺省值，想行内元素类型一样显示；
-inline-block 显示为行内元素，内容显示为块级元素；
-list-item 想块元素一样显示，并添加样式列表标记；
-table 元素会作为块级表格显示；
-inherit 从父级元素继承display属性的值；
 
 ### position的值relative和absolute定位原点是
 
@@ -381,39 +277,7 @@ transform: \ scale(0.85,0.9) \ translate(0px,-30px) \ skew(-9deg,0deg) \ Animati
 
 简单方式： 上面一个div宽度100%； 下面两个div分别宽50%； 然后用float或者inline使其不换行即可；
 
-### 经常遇到的浏览器的兼容性有哪些，原因，解决方案是什么，常用hack的技巧
 
-1.png24位的图片在ie6浏览器上出现背景;
-解决方案是吧图片做成png8；
-
-2.浏览器默认的margin和padding不同；
-解决方案是加一个全局的*{margin:0;padding:0;}来统一
-
-3.ie6双边距bug：块属性标签float后，又有横行的margin情况下，在ie6显示margin比设置的大;
-解决方案在float的标签样式控制中加入_display:inline，将其转化为行内属性；
-
-_这个符号渐进识别的方式，从总体中逐渐排除局部；
-bakcguound-color:red /*所有识别*/
-.bakcguound-color:red /*ie6,7,8识别*/
-+bakcguound-color:red /*ie6,7识别*/
-_bakcguound-color:red /*ie6识别*/
-
-
-4.ie下，可以使用获取常规属性的方法来获取自定义属性，也可以使用getAttribute()获取自定义属性，firefox下，只能使用getAttribute()获取自定义属性；
-解决方案：统一通过getAttribute()获取自定义属性；
-
-5.ie下，even对象有x，y属性，但没有pageX，pageY属性；firefox下，event对象有pageX,pageY属性，但没有x,y属性；
-
-解决方案：条件注释，缺点在ie浏览器下可以会增加额外的http请求数；
-6.chrome中文见面下默认将小雨12px的文本强制按照12px显示，
-
-解决方案：通过加入css属性-webkit-text-size-adjust:none；
-7.超链接访问过后hover样式就是出现不了，被点击访问过的超链接样式并不在具有hover和active了
-
-解决方案：改变css属性的排序顺序
-
-L-V-H-A
-:link{} :visited{} :hover{} :active{}
 
 ### li与li之间有看不见的空白间隔是什么原因引起的，解决方案
 
