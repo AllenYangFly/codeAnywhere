@@ -92,31 +92,9 @@ IE8~IE6支持通过document,createElement方法产生的标签，可用利用这
 
 
 
-### 浏览器是怎么对h5的离线储存资源进行管理和加载的
 
-在线情况下，浏览器发现html头部有manifest属性，会请求manifest文件，如果第一次访问app，会根据manifest文件的内容下载相应的资源并且离线存储，如果已经访问过并且资源已经存储了，那么浏览器就会使用离线资源加载页面，然后对比新的manifest文件，如果文件没有改变，不做任何操作，改变，则更新=>重新下载； 离线情况下，浏览器就直接使用离线存储的资源；
 
-### 描述cookies,sessionStorage,localStorage的区别
 
-cookie是网站为了表示用户身份而储存在用户本地终端上的数据；
-
-cookie数据始终在同源的http请求中携带，会记在浏览器和服务器间来回传递；
-
-sessionStorage和localStorage不会自动把数据发给服务器，仅在本地保存；
-
-存储大小：
-
-cookie数据大小不能超过4k；
-
-sessionStorage和localStorage 也有大小限制，可以达到5m或更大；
-
-有效时间
-
-localStorage：存储持久数据，浏览器关闭后数据不丢失，除非主动删除数据；
-
-sessionStorage: 数据在当前浏览器窗口关闭后自动删除；
-
-cookie: 设置的cookie过期时间之前一直有效，即使窗口或浏览器关闭；
 
 ### iframe有哪些缺点？
 
@@ -126,16 +104,7 @@ cookie: 设置的cookie过期时间之前一直有效，即使窗口或浏览器
 使用iframe之前需要考虑着两个缺点，如果使用iframe，最好是通过javascript动态给iframe添加src属性值，这样可以绕开问题；
 
 
-### label的作用是什么，怎么用
 
-label标签来定义表单控制间的关系，当用户选择该标签时，浏览器会自动将焦点转到和标签相关的表单控件上；
-
-    <label for="Name"> Number: </label>
-    <input type=“text“name="Name" id="Name"/>
-
-### h5的form如何关闭自动完成功能
-
-给不想要提示的form或某个input设置为autocomplete=off;
 
 ### 如何实现浏览器内多个标签页之间的通信
 
@@ -186,50 +155,8 @@ i是内容展示位斜体，em表示强调的文本；
 应该准确使用语义样式标签，但不能滥用，如果不能确定，首选使用自然样式标签；
 
 # CSS
-### 介绍一下标准的CSS盒子模型，低版本IE的盒子模型有什么不同
 
-1.有两种：IE盒子模型，W3C盒子模型；
 
-2.盒模型：内容-content,填充-padding,边界-margin,边框-border；
-
-3.区 别：ie的content部分把border和padding计算了进去；
-
-### CSS选择符有哪些，哪些属性可以继承
-
-id选择器(#myid)
-class选择器(.myClassName)
-标签选择器(div,h1,p)
-相邻选择器(h1+p)
-子选择器(ul>li)
-后代选择器(li a)
-通配符选择器(*)
-属性选择器(a[rel="external"])
-伪类选择器(a:hover，li:nth-child)
-
-可继承样式：
-    font-size,font-family,color,ul,li,dl,dd,dt;
-不可继承的样式：
-    border,padding,margin,width,height;
-
-### CSS优先级算法如何计算
-
-计算权重,通权重情况下样式定义最近者为准；
-
-!important> inline style> id> class> tag
-
-### CSS3新增伪类有哪些
-
-p : firs-of-type 选择属于其父元素的首个p的每个p元素;
-p : last-of-type 选择属于其父元素的最后p的每个p元素；
-p: only-of-type 选择属于其父元素唯一的p的每个p元素；
-p: only-child 选择属于其父元素的唯一子元素的每个p元素；
-p : nth-child(2) 属于其父元素的第二个子元素的每个p元素；
-
-:after 在元素之前添加内容，又可以用来清除浮动；
-:before 在元素之后添加内容；
-:enabled 匹配用户界面上处于可用状态的元素；
-:disabled 控制表单控件的禁用状态；
-:checked 单选或复选框被选中；
 
 
 
