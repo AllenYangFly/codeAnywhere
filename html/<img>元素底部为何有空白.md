@@ -1,3 +1,5 @@
+
+[<img>元素底部为何有空白？](https://www.zhihu.com/question/21558138)
 ```
 现代浏览器中，<img>元素默认情况下底部会有空白，那么这个空白到底是从哪里来的？
 有什么比较好的方法可以去掉这个空白？
@@ -63,3 +65,5 @@ vertical-align 的默认值是 baseline，这是一个西文排版才有的概�
 如果没有设置 line-height，line-height 的默认值是基于 font-size 的，
 视渲染引擎有所不同，但一般是乘以一个系数（比如1.2）。
 因此，在没有设置 line-height 的情况下把 font-size 设为0也可以达到同样的效果。当然，这样做的后果就是不能图文混排了。
+
+[What is Vertical Align?](https://css-tricks.com/what-is-vertical-align/)
