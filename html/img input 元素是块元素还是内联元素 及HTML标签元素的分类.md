@@ -16,6 +16,8 @@ inline：
 
 # &lt;img&gt; &lt;input&gt; inline元素 ，有着类似于Inline-block的行为
 
+![<img> <input> inline元素 ，有着类似于Inline-block的行为;  block、 inline inline-block表现](https://github.com/honeyhoneywell/codeAnywhere/blob/revise/html/img%20input%20%20inline%E5%85%83%E7%B4%A0%20%E6%9C%89%E7%9D%80%E7%B1%BB%E4%BC%BC%E4%BA%8EInline-block%E7%9A%84%E8%A1%8C%E4%B8%BA%20%20%20block%20inline%20%20inline-block%20%E8%A1%A8%E7%8E%B0.png " <img> <input> inline元素 ，有着类似于Inline-block的行为;  block、 inline inline-block表现")
+
 ```
 <img>元素是块元素还是内联元素？
 https://www.zhihu.com/question/25402556
