@@ -5,10 +5,12 @@
  * reject、 resolve
  */
 
-function add() {
-
+function timeOut(ms) {
+    return new Promise((resolve, reject) => {
+        setTimeout(resolve, ms, 'done');
+    })
 }
 
-function sum * () {
-
-}
+timeOut(100).then((value) => {
+    console.log(value);
+})
