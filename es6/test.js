@@ -1,8 +1,9 @@
 //   学习JS文件
 
 /**
- * Promise函数
+ * Promise函数 new Promise
  * reject、 resolve
+ * then、catch
  */
 
 function timeOut(ms) {
@@ -14,3 +15,31 @@ function timeOut(ms) {
 timeOut(100).then((value) => {
     console.log(value);
 })
+/**
+ * 异步Ajax
+ *
+var promise = new Promise(function(resolve, reject) {
+    $.ajax({}, callback(function() {
+        if(rep.code == 200)        {
+            resolve()
+        }else {
+            reject()
+        }
+    }))
+})
+
+
+promise.then(function() {
+    console.log('resolve')
+})
+*/
+
+
+
+
+
+
+
+
+
+
