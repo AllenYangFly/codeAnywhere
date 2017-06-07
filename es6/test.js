@@ -13,7 +13,7 @@ function timeOut(ms) {
 }
 
 timeOut(100).then((value) => {
-    console.log(value);
+    // console.log(value);
 })
 /**
  * 异步Ajax
@@ -36,10 +36,25 @@ promise.then(function() {
 
 
 
+<<<<<<< HEAD
 
 
 
 
 
+=======
+/**
+ * generater函数
+ */
+
+function * gen() {
+    yield 'hello';
+    yield 'world';
+    return 'end'
+}
+
+var generter = new gen();
+generter.next();
+>>>>>>> master
 
 
