@@ -4,12 +4,24 @@
  * catch() 只传递reject的handler
  */
 
-var promise = new Pormie((val) => {
-    if(val > 5) {
-        resolve(val);
-    } else {
-        reject(val)
-    }
-})
+function switchNum(val) {
+    // 使用Promise构造函数创建
+    return new Promise((resolve, reject) => {
+        if(val > 5) {
+            resolve('The value is more then: ' + val);
+        } else {
+            reject('The value is less then: ' + val)
+        }
+    })
+}
 
-promise.then()
+let switchNumPromise = switchNum(3);
+switchNumPromise.then((value) => {
+    console.log(value);
+}, (err) => {
+    console.log(err)
+}); 
+
+
+
+// 使用已有函数创建
