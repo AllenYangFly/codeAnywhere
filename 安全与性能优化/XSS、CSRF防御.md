@@ -1,4 +1,4 @@
-!()[https://aidandai.coding.me/archives/xss-attack-and-defense]
+[参考博文](https://aidandai.coding.me/archives/xss-attack-and-defense)
 
 ## XSS攻击
 
