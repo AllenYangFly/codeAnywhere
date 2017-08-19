@@ -1,3 +1,5 @@
+http://jixianqianduan.com/frontend-javascript/2015/11/29/js-data-two-ways-binding.html
+
 ##  什么是双向绑定？
 
 顾名思义，双向绑定就是两遍都绑定的意思。具体点来说就是将view层数据与model层数据建立联系，使model更新能自动触发view更新，view更新也能实时反馈到model。
