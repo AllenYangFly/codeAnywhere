@@ -93,17 +93,12 @@ IE8~IE6支持通过document,createElement方法产生的标签，可用利用这
 
 
 
-
-
-
 ### iframe有哪些缺点？
 
 1.iframe会阻塞主页面的onload时间；搜索引撃的检索程序无法解读这种页面，不利于SEO；
 2.iframe和主页面共享连接池，而浏览器对相同域的链接有限制，所以会影响页面的并行加载；
 
 使用iframe之前需要考虑着两个缺点，如果使用iframe，最好是通过javascript动态给iframe添加src属性值，这样可以绕开问题；
-
-
 
 
 ### 如何实现浏览器内多个标签页之间的通信
@@ -155,13 +150,6 @@ i是内容展示位斜体，em表示强调的文本；
 应该准确使用语义样式标签，但不能滥用，如果不能确定，首选使用自然样式标签；
 
 # CSS
-
-
-
-
-
-
-
 ### position的值relative和absolute定位原点是
 
 absolute：绝对定位，相对于值不为static的第一个父级元素进行定位；
@@ -263,6 +251,7 @@ transform: \ scale(0.85,0.9) \ translate(0px,-30px) \ skew(-9deg,0deg) \ Animati
     }
 
 ### 什么是CSS预处理器/后处理器
+
 -预处理：LESS，Sass，stylus，用来预编译Sass或less，增强了css代码的复用性；还有层级，mixin，变量，循环，函数等，具有很方便地ui组件模块化开发能力极大提高工作效率
 
 -后处理器，如PostCSS,通常被视为在完成的样式表中根据css规范处理css，让其更有效，目前最常做的是给css属性添加浏览器私有前缀，实现跨浏览器兼容性的问题；

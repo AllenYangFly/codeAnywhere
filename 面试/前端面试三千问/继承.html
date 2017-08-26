@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <script type="text/javascript">
+        // 原型链继承  问题，1.原型中的引用类型会被所有实例所引用 2.创建子类型不能向超类型传递参数
+        function SuperType() {
+            this.property = true;
+            this.color = ['blue', 'red']
+        }
+
+        SuperType.prototype.getSuperValue = function() {
+            return this.property;
+        }
+
+        function SubType(name) {
+            this.subproperty = false;
+            this.name = name;
+        }
+
+        SubType.prototype = new SuperType();
+
+        SubType.prototype.getSubvalue = function() {
+            return this.subproperty;
+        }
+
+
+        // 构造函数继承   解决了上面的1，2两个问题,缺点不能使用父级的原型方法
+        function SuperType(name) {
+            this.color = ['red', 'blue'];
+            this.name = name;
+        }
+
+        function SubType(name) {
+            // 继承了 SuperType
+            SuperType.call(this, name);
+        }
+        
+
+        //组合继承(最常用) 综合上面两个,利用原型链实现方法和原型属性的继承，利用构造函数实现实例属性的继承.缺点，两次调用父类构造函数
+        function SuperType(name) {
+            this.name = name;
+        }
+
+        SuperType.prototype.sayName = function() {
+            alert(this.name);
+        }
+
+        function SubType(name, age) {
+            SuperType.call(this, name);      // 第二次调用
+            this.age = age;
+        }
+
+        SubType.prototype = new SuperType();     // 第一次调用
+        SubType.prototype.constructor = SubType;
+        SubType.prototype.sayAge = function() {
+            alert(this.age);
+        }
+
+        var instance = new SubType('allen', 11);
+        instance.sayAge();
+        instance.sayName();
+
+
+        // 原型式继承(非构造函数继承)
+        var person = {
+            name: 'allen'
+        };
+
+        
+        function object(person) {
+            function F() {}
+            F.prototype = person;
+            return new F();
+        }
+
+        // 或者使用Object.create()函数
+        var anotherPerson = Object.create(person);
+        
+
+        // 寄生式继承(非构造函数继承)
+        function createAnother(original) {
+            // 返回一个新对象
+            var clone = Object.create(original);
+            clone.sayHi = function() {
+                alert('Hi');
+            };
+            return clone;
+        }
+
+        // 寄生式组合继承, 只调用一次父级
+        function  SuperType(name) {
+            this.name = name;
+        }
+
+        SuperType.prototype.sayName = function() {
+            alert(this.name);
+        }
+
+        function SubType(name, age) {
+            SuperType.call(this, name);
+            this.age = age;
+        }
+
+        inheritPrototype(SubType, SuperType);
+
+        SubType.prototype.sayAge = function() {
+            alert(this.age);
+        };
+
+        function inheritPrototype(subType, superType) {
+            var prototype = Object.create(superType.prototype);
+            prototype.constructor = subType;
+            subType.prototype = prototype;
+        }
+
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

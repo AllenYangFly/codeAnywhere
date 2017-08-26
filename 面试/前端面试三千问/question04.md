@@ -21,8 +21,8 @@ alert(arr.constructor === Array); // true
 注意：typeof操作符与instanceof操作符区别
 1.typeof操作符 
 这种方法对于一些常用的类型来说那算是毫无压力，比如Function、String、Number、Undefined等，但是要是检测Array的对象就不起作用了。
-    2.Instanceof运算符
-    此运算符可以判断一个变量是否是某个对象（类）的实例，返回值是布尔类型的。
+2.Instanceof运算符
+此运算符可以判断一个变量是否是某个对象（类）的实例，返回值是布尔类型的。
 
 3.例举3种强制类型转换和2种隐式类型转换？
 

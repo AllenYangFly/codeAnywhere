@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript">
+        // object形式
+        var p1 = new Object();
+        p1.name = 'allen';
+
+        // 字面量
+        var p2 = {
+            name: 'allen'
+        };
+
+        // 工厂   上面两个创建单体对象，创建多个会有很多重复代码，于是便有了工厂模式，但是工厂模式创建的对象不能识别对象类型
+        function createp3(name) {
+            var o = new Object();
+            o.name = name;
+            return o;
+        }
+        var p = createp3('allen');
+        console.log(p.name);
+
+        // 构造函数模式     构造函数解决了对象类型识别的问题，即(p4 instanceOf p4) 
+        function P4(name) {
+            this.name = name;
+        }
+        var p4 = new P4('yang');
+        console.log(p4.name);
+
+        // 原型模式     构造函数每创建一个对象，构造函数的每个方法都会重新创建一遍，不会共享，从而浪费了大量的储存空间，于是便出现了原型模式
+        function P5() {}
+        P5.prototype.name = 'allen';
+        var p5 = new P5();
+        console.log(p5.name);
+
+        // 构造函数和原型组合
+        function P6(name) {
+            this.name = name;
+        }
+        P6.prototype.sayName = function() {
+            console.log(this.name);
+        }    
+        var p6 = new P6('asia');
+        p6.sayName();
+
+        
+        // 动态原型模式   
+        function p7(name){
+            this.name = name;
+            if(typeof this.sayName != 'function') {
+                P7.prototype.sayName = function() {
+                    console.log(this.name);
+                }
+            }
+        }
+
+
+        // 寄生构造函数模式 和 工厂模式相同，只是创建实例的方式不同,构建特殊的构造函数，不能用instanceof
+        function P8(name) {
+            var obj = new Object();
+            obj.name = name;
+            return obj;
+        }
+        var p8 = new P8('liyawei');
+        console.log(p8.name);
+        
+
+        // 稳妥构造函数模式     不使用this,创建实例不使用new
+        function p9(name) {
+            var obj = new Object();
+            obj.sayName = function() {
+                console.log(name);
+            }
+        }
+
+        var p9 = p9('allen');
+    </script>
+</head>
+<body>
+
+</body>
+</html>

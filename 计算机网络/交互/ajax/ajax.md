@@ -1,8 +1,8 @@
-# AJAX
+## AJAX
 
 即”Asynchronous Javascript And XML”(异步JavaScript和XML),通常我们在进行网页数据的更新的时候，必须要进行网页的刷新，非常影响使用者的体验，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。
 
-##  1.创建Ajax对象
+###  1.创建Ajax对象
 
 ```
 try{
@@ -14,7 +14,7 @@ try{
 }
 ```
 
-## 2.规定请求的类型、URL 以及是否异步处理请求
+### 2.规定请求的类型、URL 以及是否异步处理请求
 
 ```
 // 处理get请求地址
@@ -33,7 +33,7 @@ bool参数为’true’或者’false’:
 * ‘true’代表异步
 * ‘false’代表同步
 
-## 3.发送请求
+### 3.发送请求
 
 ```
 if( method == 'get'){
@@ -45,7 +45,7 @@ if( method == 'get'){
 }
 ```
 
-## 4.响应
+### 4.响应
 
 onreadystatechange 每当readyState状态值改变的时候，就会触发这个事件。当触发事件的时候，使用readyState和status判断请求是否正常:
 
