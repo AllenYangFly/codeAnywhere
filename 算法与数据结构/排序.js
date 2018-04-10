@@ -214,8 +214,6 @@ function BubbleSort(arr, order=1) {
  * 最优时间复杂度 ---- 每次选取的基准都能使划分均匀，只需要logn次划分就能结束递归，时间复杂度为O(nlogn)
  * 平均时间复杂度 ---- O(nlogn)
  */
-
-
 function quickSort(arr, order=1) {
     if(arr.length <= 1) { return arr; }
 
